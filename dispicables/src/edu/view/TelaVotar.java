@@ -19,10 +19,10 @@ public class TelaVotar {
 		JPanel painelPrincipal = new JPanel(new BorderLayout());
 		JPanel painelConteudo = new JPanel();
 		JTextField tipoProposicao = new JTextField(30);
-		JButton aFavor = new JButton("A favor");
-		JButton contra = new JButton("Contra");
-		JButton cancelar = new JButton("Cancelar");
-		JButton proximo = new JButton("Próximo");
+		JButton btnFavor = new JButton("A favor");
+		JButton btnContra = new JButton("Contra");
+		JButton btnCancel = new JButton("Cancelar");
+		JButton btnProx = new JButton("Próximo");
 		JTextArea conteudoProposicao = new JTextArea(9, 40);
 		
 		tipoProposicao.setEnabled(false);
@@ -32,9 +32,11 @@ public class TelaVotar {
 		
 		
 		painelConteudo.setBorder(new CompoundBorder(new TitledBorder("Conteúdo"), null));
+		
 		painelPrincipal.add(painelConteudo, BorderLayout.CENTER);
 		painelPrincipal.add(tipoProposicao, BorderLayout.NORTH);
-		janela.setContentPane(painelPrincipal);;
+		janela.setContentPane(painelPrincipal);
+//		painelPrincipal.add(aFavor);
 		
 		janela.setSize(800, 400);
 		janela.setVisible(true);
