@@ -1,4 +1,4 @@
-package view;
+package edu.view;
 
 //Referente ao protótipo TelaAlterarDetalhes
 

@@ -1,4 +1,4 @@
-package fileManager;
+package edu.fileManager;
 
 public class OpenFile {
 

@@ -1,4 +1,4 @@
-package fileManager;
+package edu.fileManager;
 
 import java.io.BufferedReader;
 import java.io.File;
