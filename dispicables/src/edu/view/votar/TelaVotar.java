@@ -50,6 +50,7 @@ public class TelaVotar {
 		JTextArea areaConteudoProposicao = new JTextArea(); // Criando TxtArea
 		areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
 		JScrollPane scrConteudo = new JScrollPane(areaConteudoProposicao); // Criando o ScrollBar e atribuindo ao TxtArea
+		scrConteudo.setVisible(true);
 		scrConteudo.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS); // Deixando o Scrol Bar
 																								// sempre visivel.
 		areaConteudoProposicao.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum sapien quis dignissim ornare. Integer faucibus vel nulla ut euismod. Nunc accumsan egestas lectus ut pellentesque. Nunc maximus odio vel lacinia rhoncus. Vivamus sagittis nunc ac lorem commodo, nec dictum erat imperdiet. Morbi tincidunt eros quis neque sodales pharetra. Integer lobortis sollicitudin purus. Nam at mauris sit amet lorem tristique aliquam sit amet sit amet est. Fusce pulvinar diam ac quam dignissim eleifend. Nullam eleifend facilisis vestibulum. Nullam volutpat dui et elit condimentum fringilla id id justo. Vivamus non metus auctor nisl viverra finibus nec eu velit. Sed sit amet ex a risus blandit scelerisque. Nullam eget orci non magna tincidunt pulvinar vel in lacus. Nunc nec fermentum ex.\r\n" + 
