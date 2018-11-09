@@ -2,6 +2,7 @@ package edu;
 
 import edu.view.TelaMain;
 import edu.view.alterar.TelaAlterar;
+import edu.view.alterar.TelaAlterar2;
 import edu.view.login.TelaLogin;
 import edu.view.votar.TelaVotar;
 
@@ -11,6 +12,7 @@ public class Principal {
 		new TelaMain();
 		new TelaLogin();
 		new TelaAlterar();
+		new TelaAlterar2();
 	}
 
 }

@@ -1,7 +1,9 @@
 package edu.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,7 +13,7 @@ import javax.swing.JPanel;
 public class TelaMain {
 
 	public TelaMain() {
-		JFrame telaMain = new JFrame("Meu Malvado Favorito");
+		JFrame janela = new JFrame("Meu Malvado Favorito");
 		JPanel painelPrincipal = new JPanel(new BorderLayout()); // Painel principal onde vãos os outros paineis
 		JPanel painelBotoes = new JPanel();
 
@@ -25,12 +27,15 @@ public class TelaMain {
 		painelBotoes.add(btnVotar);
 		painelBotoes.add(btnLer);
 		painelBotoes.add(btnVerificar);
+		
+		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+		janela.setLocation((ds.width - 400) / 2, (ds.height - 400) / 2);
 
-		telaMain.setContentPane(painelPrincipal);
+		janela.setContentPane(painelPrincipal);
 
-		telaMain.setSize(800, 400);
-		telaMain.setVisible(true);
-		telaMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janela.setSize(400, 400);
+		janela.setVisible(true);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

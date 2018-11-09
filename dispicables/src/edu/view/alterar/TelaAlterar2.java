@@ -1,36 +1,30 @@
-package edu.view.votar;
+package edu.view.alterar;
 
-import java.applet.Applet;
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 
-public class TelaVotar {
+//Referente ao protótipo TelaAlterarDetalhes
 
-	public TelaVotar() {
+public class TelaAlterar2 {
+	public TelaAlterar2() {
 		criarLayout();
 	}
-
+	
 	public void criarLayout() {
 //		Criação de Janela, painel e objetos necessários.
 		JFrame janela = new JFrame("Titulo da proposição"); // TODO: Alterar o Título da janea conforme o titulo da
@@ -46,9 +40,15 @@ public class TelaVotar {
 																							// Paneil.
 
 //		Criação de objetos que seram comportados dentro dos paineis.
-		JLabel lblTipoProposicao = new JLabel("Tipo da proposição"); // TODO: Alterar o tipo conforme o tipo da
-																		// proposição mostrada na tela.
-
+		
+		String[] tipo = {"Tipo", "Teste2", "Teste3"};
+		String[] titulo = {"Titulo", "Teste2", "Teste3"};
+		JComboBox cmbTipo = new JComboBox<String>(tipo);
+		JComboBox cmbTitulo = new JComboBox<String>(titulo);
+		
+		
+		
+		
 		JTextArea areaConteudoProposicao = new JTextArea(); // Criando TxtArea
 		areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
 		JScrollPane scrConteudo = new JScrollPane(areaConteudoProposicao); // Criando o ScrollBar e atribuindo ao TxtArea
@@ -64,11 +64,13 @@ public class TelaVotar {
 		areaConteudoProposicao.setWrapStyleWord(true);
 		
 //		Criação de botões
-		JButton btnFavor = new JButton("A Favor");
-		JButton btnContra = new JButton("Contra");
+		JButton btnAlterar = new JButton("Alterar");
 		JButton btnCancel = new JButton("Cancelar");
 		JButton btnVoltar = new JButton("Voltar");
 		JButton btnProx = new JButton("Próximo");
+		JButton btnPesquisar = new JButton("Pesquisar");
+		
+		JLabel lblVoto = new JLabel("Favor/Contra"); //TODO: pegar o voto realizado do objeto e setar no label.
 
 		JPanel painelBotoes = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -81,9 +83,9 @@ public class TelaVotar {
 		gbc.weightx = 0.25;
 		gbc.insets = new Insets(4, 4, 4, 4);
 
-		painelBotoes.add(btnFavor, gbc);
+		painelBotoes.add(btnAlterar, gbc);
 		gbc.gridx--;
-		painelBotoes.add(btnContra, gbc);
+		painelBotoes.add(lblVoto, gbc);
 		gbc.gridx = 0;
 		gbc.gridy= 2;
 		painelBotoes.add(btnCancel, gbc);
@@ -97,9 +99,15 @@ public class TelaVotar {
 																		// Conteudo.
 
 //		Adicionando o Tipo Proposicao no inicio do painel.
-		c.fill = GridBagConstraints.HORIZONTAL;
+//		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
-		painelPrincipal.add(lblTipoProposicao, c);
+		painelPrincipal.add(cmbTipo, c);
+		
+		c.anchor = GridBagConstraints.PAGE_START;
+		painelPrincipal.add(cmbTitulo, c);
+		
+		c.anchor = GridBagConstraints.FIRST_LINE_END;
+		painelPrincipal.add(btnPesquisar, c);
 
 //		Adicionando o PainelConteudo no principal.
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -128,6 +136,7 @@ public class TelaVotar {
 		janela.setSize(800, 650);
 		janela.setVisible(true);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 
 }
