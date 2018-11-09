@@ -10,34 +10,28 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class TelaCadastro {
-	public TelaCadastro() {
+public class TelaEsqueciSenha {
+	public TelaEsqueciSenha() {
 		criarLayout();
 	}
 
 	private void criarLayout() {
 // 		Criação da Janela, painel e objetos necessários
-		JFrame janela = new JFrame("MVF - Cadastro ");
+		JFrame janela = new JFrame("MVF - Esqueci minha senha ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
 //		Criação dos componentes para colocar dentro do painel
-		JLabel nome = new JLabel("Nome");
-		JLabel login = new JLabel("Login");
-		JLabel eMail = new JLabel("E-mail");
-		JLabel senha = new JLabel("Senha");
+		JLabel descUse = new JLabel("Digite o E-mail cadastrado, por favor.");
+		JLabel descUse2 = new JLabel("Será enviado um email imediatamente para você  ");
+		JLabel descUse3	= new JLabel("com um link de redefinição.");
 		
-		JTextField txtNome = new JTextField();
-		JTextField txtLogin = new JTextField();
-		JTextField txtEMail = new JTextField();
-		JPasswordField txtSenha = new JPasswordField();
+		JTextField txtEMail = new JTextField("exemplo@exemplo.com");
 		
-		JButton btnVoltar = new JButton("Voltar");
-		JButton btnCadFinal = new JButton("Cadastrar");
+		JButton btnEnviar = new JButton("Enviar");
 		
 //		Adicionando os componentes ao painel
 		gbc.anchor = GridBagConstraints.EAST;
@@ -47,45 +41,35 @@ public class TelaCadastro {
 		gbc.weightx = 0.25;
 		gbc.insets = new Insets(4, 4, 4, 4);
 		
-		gbc.ipady = 7;
-		painelPrincipal.add(nome, gbc);
-		gbc.gridx++;
-		painelPrincipal.add(txtNome, gbc);
+		gbc.ipady = 50;
+		gbc.gridwidth = 2;
+		painelPrincipal.add(descUse, gbc);
+		gbc.gridy++;
+		gbc.gridwidth = 0;    
+		gbc.ipady = 15;
+		painelPrincipal.add(txtEMail, gbc);
 		gbc.gridy++;
 		gbc.gridx = 0;
-		painelPrincipal.add(login, gbc);
-		gbc.gridx++;
-		painelPrincipal.add(txtLogin, gbc);
+		gbc.gridwidth = 2;
+		painelPrincipal.add(descUse2, gbc);
 		gbc.gridy++;
-		gbc.gridx = 0;
-		painelPrincipal.add(eMail, gbc);
-		gbc.gridx++;
-		painelPrincipal.add(txtEMail,gbc);
+		painelPrincipal.add(descUse3, gbc);
 		gbc.gridy++;
-		gbc.gridx = 0;
-		painelPrincipal.add(senha,gbc);
-		gbc.gridx++;
-		painelPrincipal.add(txtSenha,gbc);
-		gbc.gridy++;
-		gbc.gridx = 0;
-		gbc.ipady = 0;
-		painelPrincipal.add(btnVoltar,gbc);
-		gbc.gridx++;
-		painelPrincipal.add(btnCadFinal,gbc);
-		
+		gbc.ipady = 5;
+		painelPrincipal.add(btnEnviar, gbc);
 		
 		
 		
 //		Atribuições finais para a janela
 		janela.setContentPane(painelPrincipal);
-		janela.setSize(300,300);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
 		janela.setLocation((ds.width - 300) / 2, (ds.height - 300) / 2);
 		
+		janela.setSize(400,300);
 		janela.setVisible(true);
 		
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}
+
 }

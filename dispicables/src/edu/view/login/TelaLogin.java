@@ -41,14 +41,16 @@ public class TelaLogin {
 		JButton btnEntrar = new JButton("Entrar");
 		JButton btnCad = new JButton("Cadastrar");
 		
-//		Adicionando botões ao painel		
+//		Adicionando os componentes ao painel		
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		gbc.weightx = 0.1;
+		gbc.weightx = 0.25;
 		gbc.insets = new Insets(4, 4, 4, 4);
-
+		
+		
+		gbc.ipady = 7;
 		painelPrincipal.add(login, gbc);
 		gbc.gridx++;
 		painelPrincipal.add(txtLogin, gbc);
@@ -59,6 +61,7 @@ public class TelaLogin {
 		painelPrincipal.add(txtSenha, gbc);
 		gbc.gridy = 2;
 		gbc.gridx = 0;
+		gbc.ipady = 0;
 		painelPrincipal.add(lembrarMim, gbc);
 		gbc.gridx++;
 		painelPrincipal.add(btnEsqSen,gbc);
@@ -67,6 +70,8 @@ public class TelaLogin {
 		painelPrincipal.add(btnEntrar,gbc);
 		gbc.gridx++;
 		painelPrincipal.add(btnCad,gbc);
+		
+		
 		
 		
 //		Atribuições finais para a janela
