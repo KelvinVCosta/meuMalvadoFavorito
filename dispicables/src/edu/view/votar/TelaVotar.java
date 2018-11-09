@@ -77,7 +77,6 @@ public class TelaVotar {
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 2;
 		gbc.gridy = 0;
-		gbc.weightx = 1;
 		gbc.weightx = 0.25;
 		gbc.insets = new Insets(4, 4, 4, 4);
 

@@ -29,11 +29,11 @@ public class TelaMain {
 		painelBotoes.add(btnVerificar);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
-		janela.setLocation((ds.width - 400) / 2, (ds.height - 400) / 2);
+		janela.setLocation((ds.width - 800) / 2, (ds.height - 400) / 2);
 
 		janela.setContentPane(painelPrincipal);
 
-		janela.setSize(400, 400);
+		janela.setSize(800, 400);
 		janela.setVisible(true);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
