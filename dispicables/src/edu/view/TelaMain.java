@@ -13,6 +13,10 @@ import javax.swing.JPanel;
 public class TelaMain {
 
 	public TelaMain() {
+		criarLayout();
+	}
+
+	private void criarLayout() {
 		JFrame janela = new JFrame("Meu Malvado Favorito");
 		JPanel painelPrincipal = new JPanel(new BorderLayout()); // Painel principal onde vãos os outros paineis
 		JPanel painelBotoes = new JPanel();
@@ -27,7 +31,7 @@ public class TelaMain {
 		painelBotoes.add(btnVotar);
 		painelBotoes.add(btnLer);
 		painelBotoes.add(btnVerificar);
-		
+
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
 		janela.setLocation((ds.width - 800) / 2, (ds.height - 400) / 2);
 

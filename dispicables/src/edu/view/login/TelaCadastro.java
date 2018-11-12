@@ -84,6 +84,7 @@ public class TelaCadastro {
 		janela.setLocation((ds.width - 300) / 2, (ds.height - 300) / 2);
 		
 		janela.setVisible(true);
+		janela.setResizable(false);
 		
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

@@ -1,5 +1,7 @@
 package edu.view.login;
 
+import edu.controller.LoginController;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -71,8 +73,11 @@ public class TelaLogin {
 		gbc.gridx++;
 		painelPrincipal.add(btnCad,gbc);
 		
-		
-		
+//		Atribuindo Funções para os botões
+        LoginController loginOuvinte = new LoginController(janela);
+        btnEntrar.addActionListener(loginOuvinte);
+        btnCad.addActionListener(loginOuvinte);
+        btnEsqSen.addActionListener(loginOuvinte);
 		
 //		Atribuições finais para a janela
 		janela.setContentPane(painelPrincipal);
@@ -82,6 +87,7 @@ public class TelaLogin {
 		
 		janela.setSize(300,300);
 		janela.setVisible(true);
+		janela.setResizable(false);
 		
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
