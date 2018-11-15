@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/alterar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/le_comparativos" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/votar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/dispicables/src/edu/fileManager/OpenFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dispicables/src/edu/view/login/TelaCadastro.java" charset="windows-1252" />
+    <file url="PROJECT" charset="windows-1252" />
+  </component>
+</project>
