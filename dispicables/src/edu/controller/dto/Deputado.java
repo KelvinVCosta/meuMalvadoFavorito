@@ -1,4 +1,4 @@
-package edu.dto;
+package edu.controller.dto;
 
 public class Deputado {
 	
@@ -10,18 +10,23 @@ public class Deputado {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
-		this.id = id;
+	    this.id = id;
 	}
+
 	public UnidadeFederativa getUf() {
 		return uf;
 	}
+
 	public void setUf(UnidadeFederativa uf) {
 		this.uf = uf;
 	}
+
 	public String getSiglaPartido() {
 		return siglaPartido;
 	}
+
 	public void setSiglaPartido(String siglaPartido) {
 		this.siglaPartido = siglaPartido;
 	}

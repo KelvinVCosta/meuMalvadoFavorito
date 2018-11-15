@@ -1,4 +1,4 @@
-package edu.dto;
+package edu.controller.dto;
 
 import java.sql.Date;
 

@@ -1,4 +1,4 @@
-package edu.dto;
+package edu.controller.dto;
 
 public class UnidadeFederativa {
 

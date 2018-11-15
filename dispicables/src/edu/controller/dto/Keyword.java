@@ -1,4 +1,4 @@
-package edu.dto;
+package edu.controller.dto;
 
 public class Keyword {
 	
@@ -11,7 +11,5 @@ public class Keyword {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	
-	
-	
+
 }
