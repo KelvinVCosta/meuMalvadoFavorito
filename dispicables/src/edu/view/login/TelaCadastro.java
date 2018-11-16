@@ -1,5 +1,7 @@
 package edu.view.login;
 
+import edu.controller.action_listeners.login.Cadastro;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -38,6 +40,11 @@ public class TelaCadastro {
 		
 		JButton btnVoltar = new JButton("Voltar");
 		JButton btnCadFinal = new JButton("Cadastrar");
+//		Adicionando acao aos botoes
+
+		Cadastro cadastroOuvinte = new Cadastro(janela);
+		btnCadFinal.addActionListener(cadastroOuvinte);
+		btnVoltar.addActionListener(cadastroOuvinte);
 		
 //		Adicionando os componentes ao painel
 		gbc.anchor = GridBagConstraints.EAST;

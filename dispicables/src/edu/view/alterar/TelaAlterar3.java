@@ -1,23 +1,20 @@
 package edu.view.alterar;
 
-import java.awt.BorderLayout;
+import edu.controller.action_listeners.alterar.Alterar3;
+
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Label;
+
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.TitledBorder;
+
 
 //Referente ao protótipo TelaAlterarDetalhes
 
@@ -40,6 +37,12 @@ public class TelaAlterar3 {
 		JButton btnContra = new JButton("Contra");
 		JButton btnFavor = new JButton("Favor");
 
+//		Adicionando funcionalidade nos botoes
+        Alterar3 alterar3Ouvinte = new Alterar3(janela);
+        btnCancel.addActionListener(alterar3Ouvinte);
+        btnContra.addActionListener(alterar3Ouvinte);
+        btnFavor.addActionListener(alterar3Ouvinte);
+
 		JPanel painelBotoes = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 
@@ -61,18 +64,18 @@ public class TelaAlterar3 {
 		painelBotoes.add(btnFavor, gbc);
 		gbc.gridx++;
 
-//		Adicionando o Tipo Proposicao no inicio do painel.
+//		Adicionando o Tipo posicao no inicio do painel.
 
-		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
-		janela.setLocation((ds.width - 800) / 2, (ds.height - 650) / 2);
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        janela.setLocation((ds.width - 400) / 2, (ds.height - 100) / 2);
 
 //		Atributos finais da janela.
 		janela.setContentPane(painelBotoes); // Setando o painelprincipal dentro da janela.
 
 		janela.setSize(400, 100);
+        janela.setResizable(false);
 		janela.setVisible(true);
-		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		janela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 }

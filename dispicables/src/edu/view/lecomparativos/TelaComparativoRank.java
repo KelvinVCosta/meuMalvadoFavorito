@@ -1,5 +1,7 @@
 package edu.view.lecomparativos;
 
+import edu.controller.action_listeners.le_comparativos.ComparativosRank;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -37,7 +39,9 @@ public class TelaComparativoRank {
 		JButton btnVoltar = new JButton("Voltar");
 		
 		painelBotao.add(btnVoltar);
-		
+
+		ComparativosRank comparativosRankOuvinte = new ComparativosRank(janela);
+		btnVoltar.addActionListener(comparativosRankOuvinte);
 		
 		painelTabela.add(scrPane);
 		painelPrincipal.add(painelTabela, BorderLayout.CENTER);

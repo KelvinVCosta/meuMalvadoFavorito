@@ -1,6 +1,6 @@
 package edu.view.login;
 
-import edu.controller.LoginController;
+import edu.controller.action_listeners.login.Login;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -22,14 +22,14 @@ public class TelaLogin {
 	}
 
 	private void criarLayout() {
-// 		Criação da Janela, painel e objetos necessários
+// 		Criaï¿½ï¿½o da Janela, painel e objetos necessï¿½rios
 		JFrame janela = new JFrame("MVF - Login");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-// 		Criação para colocar dentro do painel
+// 		Criaï¿½ï¿½o para colocar dentro do painel
 		JLabel login = new JLabel("Login");
 		JLabel senha = new JLabel("Senha");
 		
@@ -73,13 +73,13 @@ public class TelaLogin {
 		gbc.gridx++;
 		painelPrincipal.add(btnCad,gbc);
 		
-//		Atribuindo Funções para os botões
-        LoginController loginOuvinte = new LoginController(janela);
+//		Atribuindo Funï¿½ï¿½es para os botï¿½es
+        Login loginOuvinte = new Login(janela);
         btnEntrar.addActionListener(loginOuvinte);
         btnCad.addActionListener(loginOuvinte);
         btnEsqSen.addActionListener(loginOuvinte);
 		
-//		Atribuições finais para a janela
+//		Atribuiï¿½ï¿½es finais para a janela
 		janela.setContentPane(painelPrincipal);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();

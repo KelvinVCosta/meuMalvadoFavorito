@@ -1,5 +1,7 @@
 package edu.view.lecomparativos;
 
+import edu.controller.action_listeners.le_comparativos.Comparativo;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -36,11 +38,16 @@ public class TelaComparativo {
 		JTextArea txtCandidato = new JTextArea();
 		txtCandidato.setEditable(false);
 		txtCandidato.setText("Candidato");
+
 		JButton btnDetalhes = new JButton("Detalhes");
-		
 		JButton btnRank = new JButton("Ver Rank");
 		JButton btnVoltar = new JButton("Voltar");
-		
+
+        Comparativo comparativoOuvinte = new Comparativo(janela);
+        btnVoltar.addActionListener(comparativoOuvinte);
+        btnRank.addActionListener(comparativoOuvinte);
+        btnDetalhes.addActionListener(comparativoOuvinte);
+
 		gbcCandidato.gridx = 0;
 		gbcCandidato.gridy = 0;
 		gbcCandidato.fill = GridBagConstraints.HORIZONTAL;

@@ -1,19 +1,19 @@
-package edu.controller;
+package edu.controller.action_listeners.login;
 
 import edu.view.TelaMain;
 import edu.view.login.TelaCadastro;
 import edu.view.login.TelaEsqueciSenha;
-import edu.view.login.TelaLogin;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class LoginController implements ActionListener {
+public class Login implements ActionListener {
     JFrame janelaAnterior;
 
-    public LoginController (JFrame janelaAnterior) {
+    public Login(JFrame janelaAnterior) {
         this.janelaAnterior = janelaAnterior;
     }
 
