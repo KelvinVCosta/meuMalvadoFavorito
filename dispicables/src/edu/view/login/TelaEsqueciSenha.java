@@ -1,5 +1,7 @@
 package edu.view.login;
 
+import edu.controller.action_listeners.login.EsqueciSenha;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -18,21 +20,24 @@ public class TelaEsqueciSenha {
 	}
 
 	private void criarLayout() {
-// 		Criação da Janela, painel e objetos necessários
+// 		Criaï¿½ï¿½o da Janela, painel e objetos necessï¿½rios
 		JFrame janela = new JFrame("MVF - Esqueci minha senha ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
-//		Criação dos componentes para colocar dentro do painel
+//		Criaï¿½ï¿½o dos componentes para colocar dentro do painel
 		JLabel descUse = new JLabel("Digite o E-mail cadastrado, por favor.");
-		JLabel descUse2 = new JLabel("Será enviado um email imediatamente para você  ");
-		JLabel descUse3	= new JLabel("com um link de redefinição.");
+		JLabel descUse2 = new JLabel("Serï¿½ enviado um email imediatamente para vocï¿½  ");
+		JLabel descUse3	= new JLabel("com um link de redefiniï¿½ï¿½o.");
 		
 		JTextField txtEMail = new JTextField("exemplo@exemplo.com");
 		
 		JButton btnEnviar = new JButton("Enviar");
-		
+
+//		Adicionando acao ao botao
+		EsqueciSenha ouv = new EsqueciSenha(janela);
+		btnEnviar.addActionListener(ouv);
 //		Adicionando os componentes ao painel
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -60,7 +65,7 @@ public class TelaEsqueciSenha {
 		
 		
 		
-//		Atribuições finais para a janela
+//		Atribuiï¿½ï¿½es finais para a janela
 		janela.setContentPane(painelPrincipal);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
@@ -68,7 +73,8 @@ public class TelaEsqueciSenha {
 		
 		janela.setSize(400,300);
 		janela.setVisible(true);
-		
+        janela.setResizable(false);
+
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 

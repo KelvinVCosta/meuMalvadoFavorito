@@ -1,6 +1,6 @@
-package edu.controller.actionListeners;
+package edu.controller.action_listeners;
 
-import edu.view.alterar.TelaAlterar;
+import edu.view.alterar.TelaAlterar2;
 import edu.view.lecomparativos.TelaComparativo;
 import edu.view.votar.TelaVotar;
 
@@ -26,7 +26,7 @@ public class Main implements ActionListener {
             janelaAnterior.dispose();
         } else if ("Verificar votos realizados".equals(e.getActionCommand())){
 //            TODO:
-            new TelaAlterar();
+            new TelaAlterar2();
             janelaAnterior.dispose();
         }
 

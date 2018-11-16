@@ -1,15 +1,11 @@
 package edu.view.votar;
 
-import java.applet.Applet;
+import edu.controller.action_listeners.votar.Votar;
+
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
@@ -19,14 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 
 public class TelaVotar {
-
 	public TelaVotar() {
 		criarLayout();
 	}
@@ -35,7 +28,6 @@ public class TelaVotar {
 //		Criação de Janela, painel e objetos necessários.
 		JFrame janela = new JFrame("Titulo da proposição"); // TODO: Alterar o Título da janea conforme o titulo da
 															// proposição mostrada na tela.
-
 		JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
 																	// GridBagLayout.
 		GridBagConstraints c = new GridBagConstraints();
@@ -48,7 +40,6 @@ public class TelaVotar {
 //		Criação de objetos que seram comportados dentro dos paineis.
 		JLabel lblTipoProposicao = new JLabel("Tipo da proposição"); // TODO: Alterar o tipo conforme o tipo da
 																		// proposição mostrada na tela.
-
 		JTextArea areaConteudoProposicao = new JTextArea(); // Criando TxtArea
 		areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
 		JScrollPane scrConteudo = new JScrollPane(areaConteudoProposicao); // Criando o ScrollBar e atribuindo ao TxtArea
@@ -91,10 +82,16 @@ public class TelaVotar {
 		gbc.gridx++;
 		painelBotoes.add(btnProx, gbc);
 
+//		Adicionando acoes aos botoes
+		Votar votarOuvinte = new Votar(janela);
+		btnCancel.addActionListener(votarOuvinte);
+        btnContra.addActionListener(votarOuvinte);
+        btnFavor.addActionListener(votarOuvinte);
+        btnProx.addActionListener(votarOuvinte);
+        btnVoltar.addActionListener(votarOuvinte);
 //		Adicionando objetos aos paineis.
 		painelConteudo.add(areaConteudoProposicao, BorderLayout.CENTER); // Adicionando o TxtArea dentro do painel
 																		// Conteudo.
-
 //		Adicionando o Tipo Proposicao no inicio do painel.
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.FIRST_LINE_START;

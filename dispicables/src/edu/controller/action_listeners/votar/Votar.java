@@ -1,4 +1,4 @@
-package edu.controller.actionListeners.votar;
+package edu.controller.action_listeners.votar;
 
 import edu.view.TelaMain;
 

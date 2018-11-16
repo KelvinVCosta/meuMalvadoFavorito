@@ -1,5 +1,7 @@
 package edu.view.lecomparativos;
 
+import edu.controller.action_listeners.le_comparativos.ComparativosCandidato;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -37,7 +39,8 @@ public class TelaComparativosCandidato {
 			JButton btnVoltar = new JButton("Voltar");
 			
 			painelBotao.add(btnVoltar);
-			
+			ComparativosCandidato comparativosComparativosOuvinte = new ComparativosCandidato(janela);
+			btnVoltar.addActionListener(comparativosComparativosOuvinte);
 			
 			painelTabela.add(scrPane);
 			painelPrincipal.add(painelTabela, BorderLayout.CENTER);

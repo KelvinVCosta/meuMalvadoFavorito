@@ -1,6 +1,6 @@
 package edu.view.login;
 
-import edu.controller.actionListeners.LoginController;
+import edu.controller.action_listeners.login.Login;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -74,7 +74,7 @@ public class TelaLogin {
 		painelPrincipal.add(btnCad,gbc);
 		
 //		Atribuindo Fun��es para os bot�es
-        LoginController loginOuvinte = new LoginController(janela);
+        Login loginOuvinte = new Login(janela);
         btnEntrar.addActionListener(loginOuvinte);
         btnCad.addActionListener(loginOuvinte);
         btnEsqSen.addActionListener(loginOuvinte);
