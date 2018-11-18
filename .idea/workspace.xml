@@ -36,15 +36,17 @@
     <session id="-2003332759">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="iml" value="2" />
-          <entry key="java" value="30" />
+          <entry key="java" value="35" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
@@ -52,20 +54,20 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="35" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="31" />
-          <entry key="java" value="554" />
+          <entry key="java" value="575" />
           <entry key="md" value="605" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="554" />
+          <entry key="JAVA" value="575" />
           <entry key="PLAIN_TEXT" value="636" />
         </counts>
       </usages-collector>
@@ -174,6 +176,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>MVF</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -260,6 +267,11 @@
             <path>
               <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
               <item name="dispicables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
+              <item name=".settings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
