@@ -44,13 +44,13 @@ public class TelaCadastro {
 	}
 
 	private void criarLayout() {
-// 		Criação da Janela, painel e objetos necessários
+// 		Criaï¿½ï¿½o da Janela, painel e objetos necessÃ¡rios
 		JFrame janela = new JFrame("MVF - Cadastro ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
-//		Criação dos componentes para colocar dentro do painel
+//		Criaï¿½ï¿½o dos componentes para colocar dentro do painel
 		JLabel nome = new JLabel("Nome");
 		JLabel login = new JLabel("Login");
 		JLabel eMail = new JLabel("E-mail");
@@ -106,7 +106,7 @@ public class TelaCadastro {
 
 
 
-//		Atribuições finais para a janela
+//		Atribuiï¿½ï¿½es finais para a janela
 		janela.setContentPane(painelPrincipal);
 		janela.setSize(300,300);
 		

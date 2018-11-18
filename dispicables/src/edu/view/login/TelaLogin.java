@@ -36,14 +36,14 @@ public class TelaLogin {
 	}
 
 	private void criarLayout() {
-// 		Cria��o da Janela, painel e objetos necess�rios
+// 		Criação da Janela, painel e objetos necessários
 		JFrame janela = new JFrame("MVF - Login");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-// 		Cria��o para colocar dentro do painel
+// 		Criação para colocar dentro do painel
 		JLabel login = new JLabel("Login");
 		JLabel senha = new JLabel("Senha");
 		
@@ -94,7 +94,7 @@ public class TelaLogin {
         btnCad.addActionListener(cadastrarOuvinte);
         btnEsqSen.addActionListener(esqueciOuvinte);
 		
-//		Atribui��es finais para a janela
+//		Atribuições finais para a janela
 		janela.setContentPane(painelPrincipal);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
