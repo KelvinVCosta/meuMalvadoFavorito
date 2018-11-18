@@ -1,6 +1,7 @@
 package edu.view.login;
 
-import edu.controller.action_listeners.login.Cadastro;
+import edu.controller.action_listeners.login.Cadastro.Cadastrar;
+import edu.controller.action_listeners.login.Cadastro.Voltar;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -16,7 +17,29 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class TelaCadastro {
-	public TelaCadastro() {
+
+    private final JTextField txtNome = new JTextField();
+    private final JTextField txtLogin = new JTextField();
+    private final JTextField txtEMail = new JTextField();
+    private final JPasswordField txtSenha = new JPasswordField();
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public JTextField getTxtLogin() {
+        return txtLogin;
+    }
+
+    public JTextField getTxtEMail() {
+        return txtEMail;
+    }
+
+    public JPasswordField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public TelaCadastro() {
 		criarLayout();
 	}
 
@@ -33,19 +56,11 @@ public class TelaCadastro {
 		JLabel eMail = new JLabel("E-mail");
 		JLabel senha = new JLabel("Senha");
 		
-		JTextField txtNome = new JTextField();
-		JTextField txtLogin = new JTextField();
-		JTextField txtEMail = new JTextField();
-		JPasswordField txtSenha = new JPasswordField();
-		
+
+
 		JButton btnVoltar = new JButton("Voltar");
 		JButton btnCadFinal = new JButton("Cadastrar");
-//		Adicionando acao aos botoes
 
-		Cadastro cadastroOuvinte = new Cadastro(janela);
-		btnCadFinal.addActionListener(cadastroOuvinte);
-		btnVoltar.addActionListener(cadastroOuvinte);
-		
 //		Adicionando os componentes ao painel
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -79,10 +94,18 @@ public class TelaCadastro {
 		painelPrincipal.add(btnVoltar,gbc);
 		gbc.gridx++;
 		painelPrincipal.add(btnCadFinal,gbc);
-		
-		
-		
-		
+
+        //		Adicionando acao aos botoes
+
+        Voltar voltarOuvinte = new Voltar(janela);
+        Cadastrar cadastrarOuvinte= new Cadastrar(janela, this);
+        btnCadFinal.addActionListener(cadastrarOuvinte );
+        btnVoltar.addActionListener(voltarOuvinte);
+
+
+
+
+
 //		Atribuições finais para a janela
 		janela.setContentPane(painelPrincipal);
 		janela.setSize(300,300);

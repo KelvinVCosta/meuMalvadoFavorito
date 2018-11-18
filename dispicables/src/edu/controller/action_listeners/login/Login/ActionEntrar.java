@@ -1,0 +1,32 @@
+package edu.controller.action_listeners.login.Login;
+
+import edu.model.dao.EleitorDAO;
+import edu.view.TelaMain;
+import edu.view.login.TelaLogin;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ActionEntrar implements ActionListener {
+
+    private final JFrame janelaAnterior;
+    private final TelaLogin telaLogin;
+
+    public ActionEntrar(JFrame janelaAnterior, TelaLogin telaLogin) {
+        this.janelaAnterior = janelaAnterior;
+        this.telaLogin = telaLogin;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        EleitorDAO control = new EleitorDAO();
+        if (control.LoginCheck(telaLogin.getTxtLogin().getText(), telaLogin.getTxtSenha().getText())) { //TODO: Senha sendo tratada como getText(). Deve-se alterar para tratar como getPassword.
+            new TelaMain();
+            janelaAnterior.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Login e/ou senha incorretos", "MVF - Erro ao logar", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+}

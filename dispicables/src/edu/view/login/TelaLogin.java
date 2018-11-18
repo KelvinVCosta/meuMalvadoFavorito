@@ -1,6 +1,8 @@
 package edu.view.login;
 
-import edu.controller.action_listeners.login.Login;
+import edu.controller.action_listeners.login.Login.ActionCadastrar;
+import edu.controller.action_listeners.login.Login.ActionEntrar;
+import edu.controller.action_listeners.login.Login.ActionEsqueciSenha;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -17,6 +19,18 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class TelaLogin {
+
+	private final JTextField txtLogin = new JTextField();
+	private final JPasswordField txtSenha = new JPasswordField();
+
+	public JTextField getTxtLogin() {
+		return txtLogin;
+	}
+
+	public JPasswordField getTxtSenha() {
+		return txtSenha;
+	}
+
 	public TelaLogin() {
 		criarLayout();
 	}
@@ -33,8 +47,7 @@ public class TelaLogin {
 		JLabel login = new JLabel("Login");
 		JLabel senha = new JLabel("Senha");
 		
-		JTextField txtLogin = new JTextField();
-		JPasswordField txtSenha = new JPasswordField();
+
 		
 		JCheckBox lembrarMim = new JCheckBox("Lembrar de mim");
 		
@@ -74,10 +87,12 @@ public class TelaLogin {
 		painelPrincipal.add(btnCad,gbc);
 		
 //		Atribuindo Fun��es para os bot�es
-        Login loginOuvinte = new Login(janela);
-        btnEntrar.addActionListener(loginOuvinte);
-        btnCad.addActionListener(loginOuvinte);
-        btnEsqSen.addActionListener(loginOuvinte);
+		ActionCadastrar cadastrarOuvinte = new ActionCadastrar(janela);
+		ActionEntrar entrarOuvinte = new ActionEntrar(janela, this);
+		ActionEsqueciSenha esqueciOuvinte = new ActionEsqueciSenha(janela);
+        btnEntrar.addActionListener(entrarOuvinte );
+        btnCad.addActionListener(cadastrarOuvinte);
+        btnEsqSen.addActionListener(esqueciOuvinte);
 		
 //		Atribui��es finais para a janela
 		janela.setContentPane(painelPrincipal);
