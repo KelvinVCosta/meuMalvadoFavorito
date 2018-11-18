@@ -12,7 +12,7 @@ public class Cadastrar implements ActionListener {
     private final JFrame janelaAnterior;
     private final TelaCadastro telaCadastro;
 
-    EleitorDAO control = new EleitorDAO();
+    EleitorDAO eleitorDAO = new EleitorDAO();
 
     public Cadastrar(JFrame janelaAnterior, TelaCadastro telaCadastro) {
         this.janelaAnterior = janelaAnterior;
@@ -34,7 +34,7 @@ public class Cadastrar implements ActionListener {
         telaCadastro.getTxtSenha().setText("");
         telaCadastro.getTxtLogin().setText("");
         //Adicionando o Eleitor no ArrayList.
-        control.Adicionar(eleitor);
+        eleitorDAO.Adicionar(eleitor);
         JOptionPane.showMessageDialog(null, "cadastro efetuado com sucesso.", "MVF - cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
     }
 }

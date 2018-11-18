@@ -31,7 +31,14 @@ public class Eleitor {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
 
+    @Override
+    public String toString() {
+        return "Eleitor{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", login='" + login + '\'' +
+                '}';
+    }
 }
