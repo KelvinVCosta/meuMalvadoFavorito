@@ -1,21 +1,23 @@
-package edu.controller.action_listeners.login.Cadastro;
+package edu.controller.action_listeners.login;
 
-import edu.view.login.TelaLogin;
+import edu.view.login.TelaCadastro;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Voltar implements ActionListener {
+public class ActionCadastrar implements ActionListener {
     JFrame janelaAnterior;
 
-    public Voltar(JFrame janelaAnterior) {
+    public ActionCadastrar(JFrame janelaAnterior) {
         this.janelaAnterior = janelaAnterior;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        new TelaLogin();
+//            Comandos do Cadastrar
+        new TelaCadastro();
         janelaAnterior.dispose();
+
     }
 }

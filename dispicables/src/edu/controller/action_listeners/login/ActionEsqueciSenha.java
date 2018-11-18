@@ -1,4 +1,4 @@
-package edu.controller.action_listeners.login.Login;
+package edu.controller.action_listeners.login;
 
 import edu.view.login.TelaEsqueciSenha;
 

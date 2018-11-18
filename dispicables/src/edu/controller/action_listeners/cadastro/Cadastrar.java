@@ -1,9 +1,8 @@
-package edu.controller.action_listeners.login.Cadastro;
+package edu.controller.action_listeners.cadastro;
 
 import edu.controller.dto.Eleitor;
 import edu.model.dao.EleitorDAO;
 import edu.view.login.TelaCadastro;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -36,6 +35,6 @@ public class Cadastrar implements ActionListener {
         telaCadastro.getTxtLogin().setText("");
         //Adicionando o Eleitor no ArrayList.
         control.Adicionar(eleitor);
-        JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.", "MVF - Cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "cadastro efetuado com sucesso.", "MVF - cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
     }
 }

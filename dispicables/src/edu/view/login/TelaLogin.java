@@ -1,8 +1,8 @@
 package edu.view.login;
 
-import edu.controller.action_listeners.login.Login.ActionCadastrar;
-import edu.controller.action_listeners.login.Login.ActionEntrar;
-import edu.controller.action_listeners.login.Login.ActionEsqueciSenha;
+import edu.controller.action_listeners.login.ActionCadastrar;
+import edu.controller.action_listeners.login.ActionEntrar;
+import edu.controller.action_listeners.login.ActionEsqueciSenha;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

@@ -1,7 +1,7 @@
 package edu.view.login;
 
-import edu.controller.action_listeners.login.Cadastro.Cadastrar;
-import edu.controller.action_listeners.login.Cadastro.Voltar;
+import edu.controller.action_listeners.cadastro.Cadastrar;
+import edu.controller.action_listeners.cadastro.Voltar;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -45,7 +45,7 @@ public class TelaCadastro {
 
 	private void criarLayout() {
 // 		Cria��o da Janela, painel e objetos necessários
-		JFrame janela = new JFrame("MVF - Cadastro ");
+		JFrame janela = new JFrame("MVF - cadastro ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.

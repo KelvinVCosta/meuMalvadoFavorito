@@ -10,10 +10,10 @@ public class Eleitor {
     public String getLogin() {
         return login;
     }
-    public void setLogin(String login) {
-        this.login = login;
-    }
-    public String getNome(){
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getNome(){
 		return nome;
 	}
 	public void setNome(String nome){
