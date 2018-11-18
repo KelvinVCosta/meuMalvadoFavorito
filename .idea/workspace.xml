@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92d56284-6088-47fb-88f7-a1f51a7b3418" name="Default Changelist" comment="Separado ActionListener por botões para facilitar a tratativa.&#10;Efetuado criação de Eleitor por meio de ArrayList.&#10;Adicionado janela de Cadastro para exibir mensagem de cadastro Efetuado.&#10;Alterado Janela de Login para checar o login/senha (Contém erro)&#10;Adicionado Janela de Login Exibir mensagem caso não consiga efetuar login.">
-      <change afterPath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Cadastro/Cadastrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Cadastro/Voltar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login/ActionCadastrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login/ActionEntrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login/ActionEsqueciSenha.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Cadastro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispicables/src/edu/controller/dto/Eleitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispicables/src/edu/controller/dto/Eleitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispicables/src/edu/model/dao/EleitorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispicables/src/edu/model/dao/EleitorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispicables/src/edu/view/login/TelaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispicables/src/edu/view/login/TelaCadastro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispicables/src/edu/view/login/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispicables/src/edu/view/login/TelaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispicables/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/dispicables/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,17 +97,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="gitignore" value="2" />
           <entry key="java" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="18" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="19" />
+          <entry key="gitignore" value="10" />
           <entry key="java" value="3168" />
           <entry key="txt" value="412" />
         </counts>
@@ -125,7 +118,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3168" />
-          <entry key="PLAIN_TEXT" value="431" />
+          <entry key="PLAIN_TEXT" value="441" />
         </counts>
       </usages-collector>
     </session>
@@ -159,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dispicables/src/edu/view/login/TelaCadastro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+            <state relative-caret-position="211">
+              <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
               <folding>
                 <element signature="e#777#778#0" expanded="true" />
                 <element signature="e#807#808#0" expanded="true" />
@@ -193,15 +186,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dispicables/src/edu/view/login/TelaLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="90" column="67" selection-start-line="90" selection-start-column="67" selection-end-line="90" selection-end-column="67" />
+            <state relative-caret-position="51">
+              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#758#759#0" expanded="true" />
                 <element signature="e#780#781#0" expanded="true" />
                 <element signature="e#820#821#0" expanded="true" />
                 <element signature="e#842#843#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dispicables/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -271,7 +272,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dispicables/src/edu/controller/actionListeners/CadastroController.java" />
         <option value="$PROJECT_DIR$/dispicables/src/edu/controller/actionListeners/Cadastro.java" />
         <option value="$PROJECT_DIR$/dispicables/src/edu/controller/actionListeners/LoginController.java" />
         <option value="$PROJECT_DIR$/dispicables/src/edu/controller/actionListeners/Login.java" />
@@ -322,6 +322,7 @@
         <option value="$PROJECT_DIR$/dispicables/src/edu/controller/dto/Eleitor.java" />
         <option value="$PROJECT_DIR$/dispicables/src/edu/view/login/TelaLogin.java" />
         <option value="$PROJECT_DIR$/dispicables/src/edu/view/login/TelaCadastro.java" />
+        <option value="$PROJECT_DIR$/dispicables/.gitignore" />
       </list>
     </option>
   </component>
@@ -356,87 +357,12 @@
             <path>
               <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
               <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name=".settings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
               <item name="dispicables" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="action_listeners" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="action_listeners" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="action_listeners" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-              <item name="Cadastro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="action_listeners" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-              <item name="Login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dispicables" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="meuMalvadoFavorito" type="b2602c69:ProjectViewProjectNode" />
@@ -451,7 +377,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542567639530" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542568842147" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -557,19 +483,19 @@
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3264642" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="8" sideWeight="0.5026652" side_tool="true" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49621785" weight="0.3286334" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49733475" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -625,13 +551,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Separado ActionListener por botões para facilitar a tratativa.&#10;Efetuado criação de Eleitor por meio de ArrayList.&#10;Adicionado janela de Cadastro para exibir mensagem de cadastro Efetuado.&#10;Alterado Janela de Login para checar o login/senha (Contém erro)&#10;Adicionado Janela de Login Exibir mensagem caso não consiga efetuar login." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dispicables/src/edu/exceptions/DtoException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dispicables/src/edu/controller/dto/Proposicao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -833,9 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,11 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -862,9 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="639">
           <caret line="144" column="35" selection-start-line="144" selection-start-column="35" selection-end-line="144" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,30 +787,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
           <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Cadastro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Cadastro.java" />
+    <entry file="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login.java" />
     <entry file="file://$PROJECT_DIR$/dispicables/src/edu/controller/action_listeners/login/Login/ActionEsqueciSenha.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -984,10 +873,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dispicables/src/edu/view/login/TelaLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="90" column="67" selection-start-line="90" selection-start-column="67" selection-end-line="90" selection-end-column="67" />
+        <state relative-caret-position="51">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#758#759#0" expanded="true" />
             <element signature="e#780#781#0" expanded="true" />
             <element signature="e#820#821#0" expanded="true" />
@@ -1008,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dispicables/src/edu/view/login/TelaCadastro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+        <state relative-caret-position="211">
+          <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
           <folding>
             <element signature="e#777#778#0" expanded="true" />
             <element signature="e#807#808#0" expanded="true" />
@@ -1020,6 +908,13 @@
             <element signature="e#990#991#0" expanded="true" />
             <element signature="e#1021#1022#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dispicables/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
         </state>
       </provider>
     </entry>
