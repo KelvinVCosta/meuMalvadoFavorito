@@ -1,5 +1,6 @@
 package edu.controller.datamanager;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,10 +23,12 @@ public class Manager {
 
     public void escreverArquivo(String fileName, String conteudo) throws IOException {
         File file = abrirArquivo(fileName);
-        FileWriter fw = new FileWriter(file);
+        FileWriter fw = new FileWriter(file, true);
+        BufferedWriter bw = new BufferedWriter(fw);
 
-        fw.append(conteudo);
-        fw.close();
+        bw.append(conteudo);
+        bw.newLine();
+        bw.close();
     }
 
 
