@@ -1,9 +1,8 @@
 package edu.controller.datamanager;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import edu.controller.dto.Eleitor;
+
+import java.io.*;
 
 public class Manager {
 
@@ -19,6 +18,25 @@ public class Manager {
 
     public File lerArquivo(String fileName) throws IOException {
         return abrirArquivo(fileName);
+    }
+
+    public Eleitor procuraArquivo (String fileName, String login) throws IOException {
+        Eleitor eleitor = new Eleitor();
+        File file = abrirArquivo(fileName);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains(login)) {
+                String[] splited = line.split("-");
+                eleitor.setNome(splited[0]);
+                eleitor.setEmail(splited[1]);
+                eleitor.setLogin(splited[2]);
+                eleitor.setSenha(splited[3]);
+                return eleitor;
+            }
+        }
+        return null;
+
     }
 
     public void escreverArquivo(String fileName, String conteudo) throws IOException {

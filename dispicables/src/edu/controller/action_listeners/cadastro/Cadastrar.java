@@ -35,6 +35,6 @@ public class Cadastrar implements ActionListener {
         telaCadastro.getTxtLogin().setText("");
         //Adicionando o Eleitor no ArrayList.
         eleitorDAO.Adicionar(eleitor);
-        JOptionPane.showMessageDialog(null, "cadastro efetuado com sucesso.", "MVF - cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.", "MVF - Cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
     }
 }

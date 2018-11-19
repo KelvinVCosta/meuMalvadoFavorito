@@ -21,12 +21,15 @@ public class EleitorDAO {
     }
 
     public boolean LoginCheck (String login, String senha){
-        for (Eleitor eleitor : eleitorList) { //TODO: Está acontecendo alguma falha ao entrar no foreach, necessário verificar.
-            if (eleitor.getLogin().equals(login)) {
-                if (eleitor.getSenha().equals(senha)) {
+        Manager manager = new Manager();
+        try {
+            if (manager.procuraArquivo("Eleitores.txt", login).getLogin().equals(login)) {
+                if (manager.procuraArquivo("Eleitores.txt", login).getSenha().equals(senha)) {
                     return true;
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return false;
     }

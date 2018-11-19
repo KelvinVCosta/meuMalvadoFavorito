@@ -4,8 +4,9 @@ public class Eleitor {
 
     private String nome;
     private String email;
+	private String login;
     private String senha;
-    private String login;
+
 
     public String getLogin() {
         return login;
@@ -34,11 +35,6 @@ public class Eleitor {
 
     @Override
     public String toString() {
-        return "Eleitor{" +
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", login='" + login + '\'' +
-                '}';
+        return nome+"-"+email+"-"+login+"-"+senha;
     }
 }
