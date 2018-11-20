@@ -10,25 +10,22 @@ import java.awt.event.ActionListener;
 
 public class Main implements ActionListener {
     JFrame janelaAnterior;
+
     public Main(JFrame janelaAnterior) {
         this.janelaAnterior = janelaAnterior;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if("Votar em proposição".equals(e.getActionCommand())){
-//            TODO:
+        if ("Votar em proposição".equals(e.getActionCommand())) {
             new TelaVotar();
             janelaAnterior.dispose();
-        } else if ("Ler Comparativos".equals(e.getActionCommand())){
-//            TODO:
+        } else if ("Ler Comparativos".equals(e.getActionCommand())) {
             new TelaComparativo();
             janelaAnterior.dispose();
-        } else if ("Verificar votos realizados".equals(e.getActionCommand())){
-//            TODO:
+        } else if ("Verificar votos realizados".equals(e.getActionCommand())) {
             new TelaAlterar2();
             janelaAnterior.dispose();
         }
-
     }
 }

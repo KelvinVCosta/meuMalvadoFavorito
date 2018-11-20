@@ -20,7 +20,7 @@ public class TelaCadastro {
 
     private final JTextField txtNome = new JTextField();
     private final JTextField txtLogin = new JTextField();
-    private final JTextField txtEMail = new JTextField();
+    private final JTextField txtEmail = new JTextField();
     private final JPasswordField txtSenha = new JPasswordField();
 
     public JTextField getTxtNome() {
@@ -31,8 +31,8 @@ public class TelaCadastro {
         return txtLogin;
     }
 
-    public JTextField getTxtEMail() {
-        return txtEMail;
+    public JTextField getTxtEmail() {
+        return txtEmail;
     }
 
     public JPasswordField getTxtSenha() {
@@ -55,8 +55,6 @@ public class TelaCadastro {
 		JLabel login = new JLabel("Login");
 		JLabel eMail = new JLabel("E-mail");
 		JLabel senha = new JLabel("Senha");
-		
-
 
 		JButton btnVoltar = new JButton("Voltar");
 		JButton btnCadFinal = new JButton("Cadastrar");
@@ -82,7 +80,7 @@ public class TelaCadastro {
 		gbc.gridx = 0;
 		painelPrincipal.add(eMail, gbc);
 		gbc.gridx++;
-		painelPrincipal.add(txtEMail,gbc);
+		painelPrincipal.add(txtEmail,gbc);
 		gbc.gridy++;
 		gbc.gridx = 0;
 		painelPrincipal.add(senha,gbc);
@@ -95,16 +93,11 @@ public class TelaCadastro {
 		gbc.gridx++;
 		painelPrincipal.add(btnCadFinal,gbc);
 
-        //		Adicionando acao aos botoes
-
+//		Adicionando acao aos botoes
         Voltar voltarOuvinte = new Voltar(janela);
-        Cadastrar cadastrarOuvinte= new Cadastrar(janela, this);
-        btnCadFinal.addActionListener(cadastrarOuvinte );
+        Cadastrar cadastrarOuvinte = new Cadastrar(janela, this);
+        btnCadFinal.addActionListener(cadastrarOuvinte);
         btnVoltar.addActionListener(voltarOuvinte);
-
-
-
-
 
 //		Atribui��es finais para a janela
 		janela.setContentPane(painelPrincipal);
