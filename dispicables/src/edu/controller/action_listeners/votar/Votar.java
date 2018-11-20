@@ -12,22 +12,14 @@ public class Votar implements ActionListener {
         this.janelaAnterior = janelaAnterior;
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if ("A Favor".equals(e.getActionCommand())){
 //            TODO: Mudar em banco a resposta do eleitor sobre aquela proposicao, a favor
+            System.out.println("A favor");
         } else if ("Contra".equals(e.getActionCommand())){
 //            TODO: Mudar em banco a resposta do eleitor sobre aquela proposicao, contra
-        } else if ("Voltar".equals(e.getActionCommand())){
-//            TODO: Volta para a proposicao anterior vista por ele
-        } else if ("Próximo".equals(e.getActionCommand())){
-//            TODO: Troca para uma nova proposicao
-        } else if ("Cancelar".equals(e.getActionCommand())){
-//            TODO: Voltar pra telaMain
-              janelaAnterior.dispose();
-              new TelaMain();
-
+            System.out.println("Contra");
         }
     }
 }
