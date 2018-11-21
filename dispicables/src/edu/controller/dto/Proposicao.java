@@ -50,4 +50,14 @@ public class Proposicao {
 		this.texto = texto;
 	}
 
+    @Override
+    public String toString() {
+        return "Proposicao{" +
+                "id=" + id +
+                ", ementaDetalhada='" + ementaDetalhada + '\'' +
+                ", dataApresentacao=" + dataApresentacao +
+                ", ementa='" + ementa + '\'' +
+                ", texto='" + texto + '\'' +
+                '}';
+    }
 }

@@ -36,8 +36,7 @@ public class ProposicaoDAO {
             File file = manager.lerArquivo("Proposicoes.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file.getPath()), "ISO-8859-1"));
             while ((line = br.readLine()) != null) {
-                setProposicao(proposicao, line);
-                proposicoes.add(proposicao);
+                proposicoes.add(setProposicao(proposicao, line));
             }
         } catch (IOException e) {
             e.printStackTrace();

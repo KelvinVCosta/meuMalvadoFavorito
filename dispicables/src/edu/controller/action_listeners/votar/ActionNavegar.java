@@ -1,25 +1,45 @@
 package edu.controller.action_listeners.votar;
 
+import edu.controller.dto.Proposicao;
+import edu.view.votar.TelaVotar;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActionNavegar implements ActionListener {
-    JFrame janelaAnterior;
+    TelaVotar telaVotar;
+    List<Proposicao> proposicoes;
 
-    public ActionNavegar(JFrame janelaAnterior) {
-        this.janelaAnterior = janelaAnterior;
+    public ActionNavegar(TelaVotar telaVotar, List<Proposicao> proposicoes) {
+        this.telaVotar = telaVotar;
+        this.proposicoes = proposicoes;
     }
 
     @Override
     public void actionPerformed(ActionEvent navegar) {
 
         if ("Anterior".equals(navegar.getActionCommand())){
-//            TODO: Volta para a proposicao anterior
-            System.out.println("Anterior");
+            if (telaVotar.getI() > 0 ) {
+                telaVotar.setI(telaVotar.getI()-1);
+                telaVotar.getJanela().setName(proposicoes.get(telaVotar.getI()).getEmenta());
+                telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
+                telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
+            } else {
+                JOptionPane.showMessageDialog(null, "Está é a primeira proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);
+            }
         } else if ("Próximo".equals(navegar.getActionCommand())){
-//            TODO: Troca para a proxima proposicao
-            System.out.println("Prox");
+            if (telaVotar.getI() < proposicoes.size() ) {
+                telaVotar.setI(telaVotar.getI()+1);
+                telaVotar.getJanela().setName(proposicoes.get(telaVotar.getI()).getEmenta());
+                telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
+                telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
+            } else {
+                JOptionPane.showMessageDialog(null, "Está é a última proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }
