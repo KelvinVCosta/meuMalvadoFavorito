@@ -3,6 +3,7 @@ package edu.view.votar;
 import edu.controller.action_listeners.votar.ActionNavegar;
 import edu.controller.action_listeners.votar.ActionVotar;
 import edu.controller.action_listeners.votar.Votar;
+import edu.controller.dto.Proposicao;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -10,6 +11,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,13 +25,16 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 
 public class TelaVotar {
+	private List<Proposicao> proposicoes = new ArrayList<>();
+
+
 	public TelaVotar() {
 		criarLayout();
 	}
 
 	public void criarLayout() {
 //		Criação de Janela, painel e objetos necessários.
-		JFrame janela = new JFrame("Titulo da proposição"); // TODO: Alterar o Título da janea conforme o titulo da
+		JFrame janela = new JFrame("Titulo da proposição"); // TODO: Alterar o Título da janela conforme o titulo da
 															// proposição mostrada na tela.
 		JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
 																	// GridBagLayout.
