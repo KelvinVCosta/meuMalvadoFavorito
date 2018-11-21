@@ -25,7 +25,7 @@ public class ActionNavegar implements ActionListener {
         if ("Anterior".equals(navegar.getActionCommand())){
             if (telaVotar.getI() > 0 ) {
                 telaVotar.setI(telaVotar.getI()-1);
-                telaVotar.getJanela().setName(proposicoes.get(telaVotar.getI()).getEmenta());
+                telaVotar.getJanela().setTitle(proposicoes.get(telaVotar.getI()).getEmenta());
                 telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
                 telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
             } else {
@@ -34,7 +34,7 @@ public class ActionNavegar implements ActionListener {
         } else if ("Próximo".equals(navegar.getActionCommand())){
             if (telaVotar.getI() < (proposicoes.size()-1) ) {
                 telaVotar.setI(telaVotar.getI()+1);
-                telaVotar.getJanela().setName(proposicoes.get(telaVotar.getI()).getEmenta());
+                telaVotar.getJanela().setTitle(proposicoes.get(telaVotar.getI()).getEmenta());
                 telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
                 telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
             } else {
