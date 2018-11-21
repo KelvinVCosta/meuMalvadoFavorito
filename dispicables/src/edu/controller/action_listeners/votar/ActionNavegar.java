@@ -19,24 +19,26 @@ public class ActionNavegar implements ActionListener {
         this.proposicoes = proposicoes;
     }
 
+    private void setDados () {
+        telaVotar.getJanela().setTitle(proposicoes.get(telaVotar.getI()).getEmenta());
+        telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
+        telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
+    }
+
     @Override
     public void actionPerformed(ActionEvent navegar) {
 
         if ("Anterior".equals(navegar.getActionCommand())){
             if (telaVotar.getI() > 0 ) {
                 telaVotar.setI(telaVotar.getI()-1);
-                telaVotar.getJanela().setTitle(proposicoes.get(telaVotar.getI()).getEmenta());
-                telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
-                telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
+                setDados();
             } else {
                 JOptionPane.showMessageDialog(null, "Está é a primeira proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);
             }
         } else if ("Próximo".equals(navegar.getActionCommand())){
             if (telaVotar.getI() < (proposicoes.size()-1) ) {
                 telaVotar.setI(telaVotar.getI()+1);
-                telaVotar.getJanela().setTitle(proposicoes.get(telaVotar.getI()).getEmenta());
-                telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
-                telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
+                setDados();
             } else {
                 JOptionPane.showMessageDialog(null, "Está é a última proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);
             }
