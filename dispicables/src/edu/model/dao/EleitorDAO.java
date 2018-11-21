@@ -17,7 +17,6 @@ public class EleitorDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public boolean LoginCheck (String login, String senha){
@@ -31,6 +30,19 @@ public class EleitorDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return false;
+    }
+
+    public boolean checkEmail (String email){
+        Manager manager = new Manager();
+        try {
+            if (manager.procuraEmailEsqueci("Eleitores.txt").getEmail().equals(email)) {
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
