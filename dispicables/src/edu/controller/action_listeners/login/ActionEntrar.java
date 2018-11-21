@@ -1,5 +1,6 @@
 package edu.controller.action_listeners.login;
 
+import edu.controller.action_listeners.votar.Votar;
 import edu.controller.datamanager.LastLogin;
 import edu.model.dao.EleitorDAO;
 import edu.model.dao.LogginDAO;
@@ -14,6 +15,7 @@ public class ActionEntrar implements ActionListener {
 
     private final JFrame janelaAnterior;
     private final TelaLogin telaLogin;
+
 
     public ActionEntrar(JFrame janelaAnterior, TelaLogin telaLogin) {
         this.janelaAnterior = janelaAnterior;
@@ -30,7 +32,8 @@ public class ActionEntrar implements ActionListener {
                 logginDAO.Adicionar(telaLogin.getTxtLogin().getText());
             }
 
-            new TelaMain();
+
+            new TelaMain(telaLogin.getTxtLogin().getText());
             janelaAnterior.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Login e/ou senha incorretos", "MVF - Erro ao logar", JOptionPane.ERROR_MESSAGE);

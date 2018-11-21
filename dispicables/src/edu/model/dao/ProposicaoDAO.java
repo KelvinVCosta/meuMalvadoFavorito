@@ -34,7 +34,6 @@ public class ProposicaoDAO {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file.getPath()), "ISO-8859-1"));
             while ((line = br.readLine()) != null) {
                 proposicoes.add(setProposicao(line));
-                System.out.println(proposicoes.get(i));
                 i++;
             }
         } catch (IOException e) {

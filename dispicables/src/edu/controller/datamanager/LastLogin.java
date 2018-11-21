@@ -25,10 +25,6 @@ public class LastLogin {
         return file;
     }
 
-    public File lerArquivo(String fileName) throws IOException {
-        return abrirArquivo(fileName);
-    }
-
     public void gravarArquivo(String fileName,String textLogin) throws IOException {
         File file = abrirArquivo(fileName);
         FileWriter fw = new FileWriter(file, false);
@@ -42,7 +38,7 @@ public class LastLogin {
         File file = abrirArquivo(fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
-            line = br.readLine();
-            txtLogin.setText(line);
+        line = br.readLine();
+        txtLogin.setText(line);
     }
 }

@@ -18,7 +18,8 @@ public class Proposicao {
         this.texto = texto;
     }
 
-    public int getId() {
+
+	public int getId() {
 		return id;
 	}
 

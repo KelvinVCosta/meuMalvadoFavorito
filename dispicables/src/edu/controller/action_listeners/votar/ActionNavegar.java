@@ -14,6 +14,7 @@ public class ActionNavegar implements ActionListener {
     TelaVotar telaVotar;
     List<Proposicao> proposicoes;
 
+
     public ActionNavegar(TelaVotar telaVotar, List<Proposicao> proposicoes) {
         this.telaVotar = telaVotar;
         this.proposicoes = proposicoes;
