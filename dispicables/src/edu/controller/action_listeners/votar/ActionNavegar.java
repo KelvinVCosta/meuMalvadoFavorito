@@ -32,7 +32,7 @@ public class ActionNavegar implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Está é a primeira proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);
             }
         } else if ("Próximo".equals(navegar.getActionCommand())){
-            if (telaVotar.getI() < proposicoes.size() ) {
+            if (telaVotar.getI() < (proposicoes.size()-1) ) {
                 telaVotar.setI(telaVotar.getI()+1);
                 telaVotar.getJanela().setName(proposicoes.get(telaVotar.getI()).getEmenta());
                 telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());

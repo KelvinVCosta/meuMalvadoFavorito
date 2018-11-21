@@ -59,10 +59,6 @@ public class TelaVotar {
 	public void criarLayout() {
         ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
         proposicoes = proposicaoDAO.preencheProposicoes();
-//         Markpoint
-        System.out.println(proposicoes.get(0).toString());
-        System.out.println(proposicoes.get(1).toString());
-        System.out.println(proposicoes.get(2).toString());
 
 //		Criação de Janela, painel e objetos necessários.
         janela = new JFrame(proposicoes.get(i).getEmenta());
