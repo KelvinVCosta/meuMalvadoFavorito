@@ -26,7 +26,7 @@ public class Cadastrar implements ActionListener {
         //Setando dados do eleitor no objeto.
         eleitor.setNome(telaCadastro.getTxtNome().getText());
         eleitor.setEmail(telaCadastro.getTxtEmail().getText());
-        eleitor.setSenha(telaCadastro.getTxtSenha().getPassword().toString()); //TODO: Senha sendo tratada como getText(). Deve-se alterar para tratar como getPassword.
+        eleitor.setSenha(String.valueOf(telaCadastro.getTxtSenha().getPassword())); //TODO: Senha sendo tratada como getText(). Deve-se alterar para tratar como getPassword.
         eleitor.setLogin(telaCadastro.getTxtLogin().getText());
         //Limpando JTextFields
         telaCadastro.getTxtNome().setText("");
