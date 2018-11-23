@@ -12,40 +12,46 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TelaMain {
+        String login;
 
-	public TelaMain() {
-		criarLayout();
-	}
+    public TelaMain(String login) {
+        this.login = login;
+        criarLayout();
+    }
 
-	private void criarLayout() {
-		JFrame janela = new JFrame("Meu Malvado Favorito");
-		JPanel painelPrincipal = new JPanel(new BorderLayout()); // Painel principal onde vãos os outros paineis
-		JPanel painelBotoes = new JPanel();
+    public TelaMain() {
+        criarLayout();
+    }
+
+    private void criarLayout() {
+        JFrame janela = new JFrame("Meu Malvado Favorito");
+        JPanel painelPrincipal = new JPanel(new BorderLayout()); // Painel principal onde vãos os outros paineis
+        JPanel painelBotoes = new JPanel();
 
 //		Botões da tela principal.
-		JButton btnVotar = new JButton("Votar em proposição");
-		JButton btnLer = new JButton("Ler Comparativos");
-		JButton btnVerificar = new JButton("Verificar votos realizados");
+        JButton btnVotar = new JButton("Votar em proposição");
+        JButton btnLer = new JButton("Ler Comparativos");
+        JButton btnVerificar = new JButton("Verificar votos realizados");
 
 //		Adiocionando os componentes ao painel
-		painelPrincipal.add(painelBotoes, BorderLayout.CENTER);
-		painelPrincipal.add(new JLabel("Meu Malvado Favorito"), BorderLayout.NORTH);
-		painelBotoes.add(btnVotar);
-		painelBotoes.add(btnLer);
-		painelBotoes.add(btnVerificar);
+        painelPrincipal.add(painelBotoes, BorderLayout.CENTER);
+        painelPrincipal.add(new JLabel("Meu Malvado Favorito"), BorderLayout.NORTH);
+        painelBotoes.add(btnVotar);
+        painelBotoes.add(btnLer);
+        painelBotoes.add(btnVerificar);
 
 //		Adicionando acoes aos botoes
-        Main mainOuvinte = new Main(janela);
+        Main mainOuvinte = new Main(janela, login);
         btnVotar.addActionListener(mainOuvinte);
         btnLer.addActionListener(mainOuvinte);
         btnVerificar.addActionListener(mainOuvinte);
 
 //      Finalizando ajustes da tela
-		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
-		janela.setLocation((ds.width - 800) / 2, (ds.height - 400) / 2);
-		janela.setContentPane(painelPrincipal);
-		janela.setSize(800, 400);
-		janela.setVisible(true);
-		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        janela.setLocation((ds.width - 800) / 2, (ds.height - 400) / 2);
+        janela.setContentPane(painelPrincipal);
+        janela.setSize(800, 400);
+        janela.setVisible(true);
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }

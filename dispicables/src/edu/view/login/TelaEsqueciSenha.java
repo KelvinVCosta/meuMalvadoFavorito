@@ -15,6 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class TelaEsqueciSenha {
+
+
+	private final JTextField txtEmail = new JTextField("exemplo@exemplo.com");
+
+	public JTextField getTxtEmail() {
+		return txtEmail;
+	}
+
 	public TelaEsqueciSenha() {
 		criarLayout();
 	}
@@ -31,13 +39,12 @@ public class TelaEsqueciSenha {
 		JLabel descUse2 = new JLabel("Ser� enviado um email imediatamente para voc�  ");
 		JLabel descUse3	= new JLabel("com um link de redefini��o.");
 		
-		JTextField txtEMail = new JTextField("exemplo@exemplo.com");
-		
 		JButton btnEnviar = new JButton("Enviar");
 
 //		Adicionando acao ao botao
-		EsqueciSenha ouv = new EsqueciSenha(janela);
+		EsqueciSenha ouv = new EsqueciSenha(janela, this);
 		btnEnviar.addActionListener(ouv);
+
 //		Adicionando os componentes ao painel
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -52,7 +59,7 @@ public class TelaEsqueciSenha {
 		gbc.gridy++;
 		gbc.gridwidth = 0;    
 		gbc.ipady = 15;
-		painelPrincipal.add(txtEMail, gbc);
+		painelPrincipal.add(txtEmail, gbc);
 		gbc.gridy++;
 		gbc.gridx = 0;
 		gbc.gridwidth = 2;
@@ -62,9 +69,7 @@ public class TelaEsqueciSenha {
 		gbc.gridy++;
 		gbc.ipady = 5;
 		painelPrincipal.add(btnEnviar, gbc);
-		
-		
-		
+
 //		Atribui��es finais para a janela
 		janela.setContentPane(painelPrincipal);
 		

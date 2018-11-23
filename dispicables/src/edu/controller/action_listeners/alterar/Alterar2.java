@@ -21,15 +21,8 @@ public class Alterar2 implements ActionListener {
         } else if ("Cancelar".equals(e.getActionCommand())) {
             janelaAnterior.dispose();
             new TelaMain();
-        } else if ("Voltar".equals(e.getActionCommand())) {
-//           Botao de navegacao entre Proposicoes
-        } else if ("Próximo".equals(e.getActionCommand())) {
-//           Botao de navegacao entre Proposicoes
-            System.out.println("Funciona com acento");
-
-        } else if ("Pesquisar".equals(e.getActionCommand())) {
-//          Botao que realiza a
-
+        }  else if ("Pesquisar".equals(e.getActionCommand())) {
+//          Botao que realiza a pesquisa atraves do JComboBox
         }
     }
 }

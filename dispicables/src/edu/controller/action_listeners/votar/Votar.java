@@ -1,33 +1,53 @@
 package edu.controller.action_listeners.votar;
 
-import edu.view.TelaMain;
+import edu.controller.dto.Proposicao;
+import edu.controller.dto.VotoEleitor;
+import edu.model.dao.VotoEleitorDAO;
+import edu.view.votar.TelaVotar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class Votar implements ActionListener {
     JFrame janelaAnterior;
-    public Votar(JFrame janelaAnterior) {
-        this.janelaAnterior = janelaAnterior;
+    String login;
+    TelaVotar telaVotar;
+    List<Proposicao> proposicoes;
+    int id;
+    VotoEleitorDAO votoEleitorDao = new VotoEleitorDAO();
+    
+    public Votar( String login, TelaVotar telaVotar, List<Proposicao> proposicoes) {
+        this.login = login;
+        this.telaVotar = telaVotar;
+        this.proposicoes = proposicoes;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private void jump(int voto) {
+    		VotoEleitor votoEleitor = new VotoEleitor();
+	    	votoEleitor.setId(proposicoes.get(telaVotar.getI()).getId());
+	    	votoEleitor.setLoginEleitor(login);
+	    	votoEleitor.setVoto(voto);
+	    	
+	    	votoEleitorDao.adiconar(votoEleitor);
+	    	
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ("A Favor".equals(e.getActionCommand())){
-//            TODO: Mudar em banco a resposta do eleitor sobre aquela proposicao, a favor
-        } else if ("Contra".equals(e.getActionCommand())){
-//            TODO: Mudar em banco a resposta do eleitor sobre aquela proposicao, contra
-        } else if ("Voltar".equals(e.getActionCommand())){
-//            TODO: Volta para a proposicao anterior vista por ele
-        } else if ("Próximo".equals(e.getActionCommand())){
-//            TODO: Troca para uma nova proposicao
-        } else if ("Cancelar".equals(e.getActionCommand())){
-//            TODO: Voltar pra telaMain
-              janelaAnterior.dispose();
-              new TelaMain();
-
+        if ("A Favor".equals(e.getActionCommand())) {
+            jump(1);
+            System.out.println("A favor");
+        } else if ("Contra".equals(e.getActionCommand())) {
+            jump(0);
+            System.out.println("Contra");
         }
     }
+
+
 }

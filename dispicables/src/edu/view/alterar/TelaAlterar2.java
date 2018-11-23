@@ -1,6 +1,9 @@
 package edu.view.alterar;
 
+import edu.controller.action_listeners.alterar.ActionNavegarAlter;
 import edu.controller.action_listeners.alterar.Alterar2;
+import edu.controller.dto.Proposicao;
+import edu.model.dao.ProposicaoDAO;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,6 +11,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,18 +24,43 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.JTextComponent;
 
 //Referente ao protótipo TelaAlterarDetalhes
 
 public class TelaAlterar2 {
-    public TelaAlterar2() {
+	private List<Proposicao> proposicoes = new ArrayList<>();
+	JFrame janela;
+    JTextArea areaConteudoProposicao;
+    int i = 0;
+    String login;
+
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+    
+    public JFrame getJanela() {
+        return janela;
+    }
+
+    public String getLogin() {
+    	return login;
+    }	
+    
+    public TelaAlterar2(String login) {
+    	this.login = login;
         criarLayout();
     }
 
     public void criarLayout() {
+    	ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
+        proposicoes = proposicaoDAO.preencheProposicoes();
 //		Criação de Janela, painel e objetos necessários.
-        JFrame janela = new JFrame("Titulo da proposição"); // TODO: Alterar o Título da janea conforme o titulo da
-        // proposição mostrada na tela.
+        janela = new JFrame(proposicoes.get(i).getEmenta());
 
         JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
         // GridBagLayout.
@@ -49,33 +79,30 @@ public class TelaAlterar2 {
         JComboBox cmbTitulo = new JComboBox<String>(titulo);
 
 
-        JTextArea areaConteudoProposicao = new JTextArea(); // Criando TxtArea
+        areaConteudoProposicao = new JTextArea(); // Criando TxtArea
         areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
         JScrollPane scrConteudo = new JScrollPane(areaConteudoProposicao); // Criando o ScrollBar e atribuindo ao TxtArea
         scrConteudo.setVisible(true);
         scrConteudo.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS); // Deixando o Scrol Bar
         // sempre visivel.
-        areaConteudoProposicao.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum sapien quis dignissim ornare. Integer faucibus vel nulla ut euismod. Nunc accumsan egestas lectus ut pellentesque. Nunc maximus odio vel lacinia rhoncus. Vivamus sagittis nunc ac lorem commodo, nec dictum erat imperdiet. Morbi tincidunt eros quis neque sodales pharetra. Integer lobortis sollicitudin purus. Nam at mauris sit amet lorem tristique aliquam sit amet sit amet est. Fusce pulvinar diam ac quam dignissim eleifend. Nullam eleifend facilisis vestibulum. Nullam volutpat dui et elit condimentum fringilla id id justo. Vivamus non metus auctor nisl viverra finibus nec eu velit. Sed sit amet ex a risus blandit scelerisque. Nullam eget orci non magna tincidunt pulvinar vel in lacus. Nunc nec fermentum ex.\r\n" +
-                "\n" +
-                "Curabitur odio mi, aliquet in feugiat eu, gravida eu ipsum. Maecenas cursus, diam sit amet sollicitudin ultrices, massa ante pretium nisi, ut vestibulum arcu magna eget purus. Maecenas ultrices quis lectus ac vestibulum. Nullam molestie enim id sodales placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque pharetra turpis a lacus dapibus, vel rhoncus magna fringilla. Phasellus laoreet venenatis nulla, sed mollis odio lacinia vel. Nam convallis lectus lectus, at rutrum odio hendrerit eget. Phasellus gravida, turpis sit amet iaculis pellentesque, ex eros egestas est, a placerat purus ante eu felis. Maecenas efficitur, erat eu viverra porttitor, justo mi blandit sem, a condimentum odio felis sit amet purus. Curabitur commodo, ipsum at faucibus maximus, nibh tortor congue nisi, vel cursus massa magna a purus. Vivamus vel elit pulvinar, vulputate sapien at, tempor sem. Cras interdum arcu laoreet ipsum volutpat consequat.\r\n" +
-                "\n" +
-                "Pellentesque nisi risus, aliquet sed nisi non, pretium eleifend quam. Proin quam felis, vulputate in metus ut, imperdiet efficitur elit. Quisque nec libero egestas, congue ligula eget, tristique tellus. Donec eu euismod augue. Nulla dignissim turpis vel augue pretium, eget ultrices elit luctus. Nulla vulputate, sapien nec mollis ornare, nulla justo aliquam risus, sit amet scelerisque massa elit ac lorem. Suspendisse sed laoreet mauris. Proin scelerisque, arcu sed efficitur feugiat, lectus leo facilisis magna, eu pretium orci felis in mauris. Cras scelerisque tempus orci eu aliquet. Phasellus ac tellus porttitor, facilisis dolor quis, aliquam purus.");
+        areaConteudoProposicao.setText(proposicoes.get(i).getTexto());
         areaConteudoProposicao.setLineWrap(true);
         areaConteudoProposicao.setWrapStyleWord(true);
 
 //		Criação de botões
         JButton btnAlterar = new JButton("Alterar");
         JButton btnCancel = new JButton("Cancelar");
-        JButton btnVoltar = new JButton("Voltar");
+        JButton btnVoltar = new JButton("Anterior");
         JButton btnProx = new JButton("Próximo");
         JButton btnPesquisar = new JButton("Pesquisar");
 
 //		Adicionando acoes aos botoes
         Alterar2 alterarOuvinte = new Alterar2(janela);
+        ActionNavegarAlter actionNavegar = new ActionNavegarAlter(this,proposicoes);
         btnAlterar.addActionListener(alterarOuvinte);
         btnCancel.addActionListener(alterarOuvinte);
-        btnVoltar.addActionListener(alterarOuvinte);
-        btnProx.addActionListener(alterarOuvinte);
+        btnVoltar.addActionListener(actionNavegar);
+        btnProx.addActionListener(actionNavegar);
         btnPesquisar.addActionListener(alterarOuvinte);
 
         JLabel lblVoto = new JLabel("Favor/Contra"); //TODO: pegar o voto realizado do objeto e setar no label.
@@ -147,5 +174,12 @@ public class TelaAlterar2 {
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+
+
+
+	public JTextComponent getAreaConteudoProposicao() {
+		// TODO Auto-generated method stub
+		return areaConteudoProposicao;
+	}
 
 }
