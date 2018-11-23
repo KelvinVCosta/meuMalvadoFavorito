@@ -8,6 +8,7 @@ public class Eleitor {
     private String senha;
 
 
+    //login se trata do username
     public String getLogin() {
         return login;
     }
