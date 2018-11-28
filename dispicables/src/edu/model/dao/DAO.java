@@ -9,18 +9,13 @@ public class DAO {
     private final String USERNAME = "postgres";
     private final String PASSWORD = "admin";
 
-    protected ResultSet runQuery(Connection con, String query) throws SQLException {
-        Statement stmt = con.createStatement();
-        return stmt.executeQuery(query);
-    }
-
-    protected Connection createCon() throws SQLException{
+    protected ResultSet runQuery(String query) throws SQLException {
         System.setProperty("jdbc.Drivers", DRIVER);
-        return DriverManager.getConnection(url, user, password);
-    }
-
-    protected void destroyCon(Connection con) throws SQLException{
+        Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
         con.close();
+        return rs;
     }
 
 }
