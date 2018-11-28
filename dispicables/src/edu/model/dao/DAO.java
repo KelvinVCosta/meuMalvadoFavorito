@@ -7,10 +7,6 @@ import java.util.Properties;
 public abstract class DAO {
 
     private final String DRIVER = "org.postgresql.Driver";
-    private final String URL = "jdbc:postgresql://localhost:5432/dispicables";
-    private final String USERNAME = "postgres";
-    private final String PASSWORD = "admin";
-
 
     private Connection getConnection(){
         try{
@@ -36,7 +32,6 @@ public abstract class DAO {
     }
 
     protected boolean selectBoolean(String query) throws SQLException, ClassNotFoundException {
-//        DriverManager.registerDriver(new org.postgresql.Driver());
         Class.forName(DRIVER);
         Connection con = getConnection();
         PreparedStatement stmt = con.prepareStatement(query);
