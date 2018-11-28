@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 public class TelaEsqueciSenha {
 
 
-	private final JTextField txtEmail = new JTextField("exemplo@exemplo.com");
+	private final JTextField txtEmail = new JTextField("");
 
 	public JTextField getTxtEmail() {
 		return txtEmail;
@@ -28,16 +28,15 @@ public class TelaEsqueciSenha {
 	}
 
 	private void criarLayout() {
-// 		Cria��o da Janela, painel e objetos necess�rios
+// 		Criar Janela, painel e objetos necessarios
 		JFrame janela = new JFrame("MVF - Esqueci minha senha ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
-//		Cria��o dos componentes para colocar dentro do painel
-		JLabel descUse = new JLabel("Digite o E-mail cadastrado, por favor.");
-		JLabel descUse2 = new JLabel("Ser� enviado um email imediatamente para voc�  ");
-		JLabel descUse3	= new JLabel("com um link de redefini��o.");
+//		Criar componentes para colocar dentro do painel
+		JLabel descUse = new JLabel("Digite o e-mail cadastrado, por favor.");
+		JLabel descUse2 = new JLabel("Sera encaminhado um email para redefinicao de senha");
 		
 		JButton btnEnviar = new JButton("Enviar");
 
@@ -65,12 +64,10 @@ public class TelaEsqueciSenha {
 		gbc.gridwidth = 2;
 		painelPrincipal.add(descUse2, gbc);
 		gbc.gridy++;
-		painelPrincipal.add(descUse3, gbc);
-		gbc.gridy++;
 		gbc.ipady = 5;
 		painelPrincipal.add(btnEnviar, gbc);
 
-//		Atribui��es finais para a janela
+//		Atribuicoes finais para a janela
 		janela.setContentPane(painelPrincipal);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();

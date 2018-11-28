@@ -35,9 +35,9 @@ public abstract class DAO {
         Class.forName(DRIVER);
         Connection con = getConnection();
         PreparedStatement stmt = con.prepareStatement(query);
-        boolean result = stmt.execute();
+        ResultSet rs = stmt.executeQuery();
         con.close();
-        return result;
+        return rs.next();
     }
 
     protected void insertQuery(String table, String headers, String values) throws SQLException, ClassNotFoundException {
