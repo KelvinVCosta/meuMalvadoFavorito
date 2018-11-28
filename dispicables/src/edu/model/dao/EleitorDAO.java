@@ -16,7 +16,7 @@ public class EleitorDAO {
         }
     }
 
-    public boolean LoginCheck (String login, String senha){
+    public boolean loginCheck(String login, String senha){
         Manager manager = new Manager();
         try {
             if ((manager.procuraArquivo("Eleitores.txt", login).getLogin().equals(login)) && (manager.procuraArquivo("Eleitores.txt", login).getSenha().equals(senha))) {

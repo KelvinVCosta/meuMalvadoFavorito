@@ -24,7 +24,7 @@ public class ActionEntrar implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
 
         EleitorDAO control = new EleitorDAO();
-        if (control.LoginCheck(telaLogin.getTxtLogin().getText(), String.valueOf(telaLogin.getTxtSenha().getPassword()))) { //TODO: Senha sendo tratada como getText(). Deve-se alterar para tratar como getPassword.
+        if (control.loginCheck(telaLogin.getTxtLogin().getText(), String.valueOf(telaLogin.getTxtSenha().getPassword()))) { //TODO: Senha sendo tratada como getText(). Deve-se alterar para tratar como getPassword.
         		LogginDAO logginDAO = new LogginDAO();
         	if(telaLogin.getLembrarmim().isSelected()){
                 
