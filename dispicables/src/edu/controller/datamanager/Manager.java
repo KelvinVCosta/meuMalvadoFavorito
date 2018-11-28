@@ -51,10 +51,8 @@ public class Manager {
 
     public Eleitor setEleitor (Eleitor eleitor,String line) {
         String[] splited = line.split("-");
-        eleitor.setNome(splited[0]);
-        eleitor.setEmail(splited[1]);
-        eleitor.setLogin(splited[2]);
-        eleitor.setSenha(splited[3]);
+        eleitor.setEmail(splited[0]);
+        eleitor.setSenha(splited[1]);
         return eleitor;
     }
 

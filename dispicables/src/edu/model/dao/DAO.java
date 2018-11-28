@@ -1,21 +1,60 @@
 package edu.model.dao;
 
-import java.sql.*;
 
-public class DAO {
+import java.sql.*;
+import java.util.Properties;
+
+public abstract class DAO {
 
     private final String DRIVER = "org.postgresql.Driver";
-    private final String URL = "jdbc:postgresql://localhost:5432/";
+    private final String URL = "jdbc:postgresql://localhost:5432/dispicables";
     private final String USERNAME = "postgres";
     private final String PASSWORD = "admin";
 
-    protected ResultSet runQuery(String query) throws SQLException {
-        System.setProperty("jdbc.Drivers", DRIVER);
-        Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
+
+    private Connection getConnection(){
+        try{
+            String url = "jdbc:postgresql://localhost:5432/dispicables";
+            Properties props = new Properties();
+            props.setProperty("user","postgres");
+            props.setProperty("password","admin");
+            props.setProperty("ssl","false");
+            return DriverManager.getConnection(url, props);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    protected ResultSet selectRS(String query) throws SQLException, ClassNotFoundException {
+        Class.forName(DRIVER);
+        Connection con = getConnection();
+        PreparedStatement stmt = con.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
         con.close();
         return rs;
+    }
+
+    protected boolean selectBoolean(String query) throws SQLException, ClassNotFoundException {
+//        DriverManager.registerDriver(new org.postgresql.Driver());
+        Class.forName(DRIVER);
+        Connection con = getConnection();
+        PreparedStatement stmt = con.prepareStatement(query);
+        boolean result = stmt.execute();
+        con.close();
+        return result;
+    }
+
+    protected void insertQuery(String table, String headers, String values) throws SQLException, ClassNotFoundException {
+        Class.forName(DRIVER);
+        Connection con = getConnection();
+
+        String insertTableSQL = "INSERT INTO "+ table
+                + "(" + headers + ") VALUES"
+                + "(" + values + ")";
+        PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+        preparedStatement .executeUpdate();
+        con.close();
     }
 
 }

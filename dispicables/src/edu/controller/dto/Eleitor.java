@@ -2,25 +2,9 @@ package edu.controller.dto;
 
 public class Eleitor {
 
-    private String nome;
     private String email;
-	private String login;
     private String senha;
 
-
-    //login se trata do username
-    public String getLogin() {
-        return login;
-    }
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getNome(){
-		return nome;
-	}
-	public void setNome(String nome){
-		this.nome = nome;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -34,8 +18,9 @@ public class Eleitor {
 		this.senha = senha;
 	}
 
-    @Override
-    public String toString() {
-        return nome+"-"+email+"-"+login+"-"+senha;
-    }
+	@Override
+	public String toString() {
+		return "email='" + email + '\'' +
+				", senha='" + senha + '\'';
+	}
 }

@@ -18,18 +18,8 @@ import javax.swing.JTextField;
 
 public class TelaCadastro {
 
-    private final JTextField txtNome = new JTextField();
-    private final JTextField txtLogin = new JTextField();
     private final JTextField txtEmail = new JTextField();
     private final JPasswordField txtSenha = new JPasswordField();
-
-    public JTextField getTxtNome() {
-        return txtNome;
-    }
-
-    public JTextField getTxtLogin() {
-        return txtLogin;
-    }
 
     public JTextField getTxtEmail() {
         return txtEmail;
@@ -44,15 +34,13 @@ public class TelaCadastro {
 	}
 
 	private void criarLayout() {
-// 		Cria��o da Janela, painel e objetos necessários
+// 		Criar Janela, painel e objetos necessários
 		JFrame janela = new JFrame("MVF - cadastro ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
-//		Cria��o dos componentes para colocar dentro do painel
-		JLabel nome = new JLabel("Nome");
-		JLabel login = new JLabel("Login");
+//		Criar componentes para colocar dentro do painel
 		JLabel eMail = new JLabel("E-mail");
 		JLabel senha = new JLabel("Senha");
 
@@ -68,15 +56,7 @@ public class TelaCadastro {
 		gbc.insets = new Insets(4, 4, 4, 4);
 		
 		gbc.ipady = 7;
-		painelPrincipal.add(nome, gbc);
 		gbc.gridx++;
-		painelPrincipal.add(txtNome, gbc);
-		gbc.gridy++;
-		gbc.gridx = 0;
-		painelPrincipal.add(login, gbc);
-		gbc.gridx++;
-		painelPrincipal.add(txtLogin, gbc);
-		gbc.gridy++;
 		gbc.gridx = 0;
 		painelPrincipal.add(eMail, gbc);
 		gbc.gridx++;

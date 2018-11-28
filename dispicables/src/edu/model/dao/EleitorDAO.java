@@ -1,44 +1,29 @@
 package edu.model.dao;
 
-import edu.controller.datamanager.Manager;
 import edu.controller.dto.Eleitor;
 
-import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class EleitorDAO {
 
-    public void Adicionar(Eleitor eleitor) {
-        Manager fileManger = new Manager();
-        try {
-            fileManger.escreverArquivo("Eleitores.txt", eleitor.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+public class EleitorDAO extends DAO {
+
+    private final String tableName = "eleitor";
+    private final String headers = "email, senha";
+
+    public void adicionar(Eleitor eleitor) throws SQLException, ClassNotFoundException {
+        String values = "'" + eleitor.getEmail() + "', '" + eleitor.getSenha() + "'";
+        insertQuery(tableName, headers, values);
     }
 
-    public boolean loginCheck(String login, String senha){
-        Manager manager = new Manager();
-        try {
-            if ((manager.procuraArquivo("Eleitores.txt", login).getLogin().equals(login)) && (manager.procuraArquivo("Eleitores.txt", login).getSenha().equals(senha))) {
-                return true;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
+    public boolean loginCheck(String email, String senha) throws SQLException, ClassNotFoundException {
+        String query = "SELECT email, senha FROM eleitor WHERE email = '" + email + "' and senha = '" + senha + "'";
+        return selectBoolean(query);
     }
 
-    public boolean checkEmail (String email){
-        Manager manager = new Manager();
-        try {
-            if (manager.procuraEmailEsqueci("Eleitores.txt").getEmail().equals(email)) {
-                return true;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return false;
+    public boolean checkEmail (String email) throws SQLException, ClassNotFoundException {
+        String query = "SELECT email FROM eleitor WHERE email = '" + email + "'";
+        return selectBoolean(query);
     }
 
 }

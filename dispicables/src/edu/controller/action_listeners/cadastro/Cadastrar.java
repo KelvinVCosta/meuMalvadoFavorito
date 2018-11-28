@@ -7,6 +7,7 @@ import edu.view.login.TelaCadastro;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Cadastrar implements ActionListener {
     private final TelaCadastro telaCadastro;
@@ -21,18 +22,18 @@ public class Cadastrar implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //Criando novo Eleitor
         Eleitor eleitor = new Eleitor();
-        //Setando dados do eleitor no objeto.
-        eleitor.setNome(telaCadastro.getTxtNome().getText());
         eleitor.setEmail(telaCadastro.getTxtEmail().getText());
-        eleitor.setSenha(String.valueOf(telaCadastro.getTxtSenha().getPassword())); //TODO: Senha sendo tratada como getText(). Deve-se alterar para tratar como getPassword.
-        eleitor.setLogin(telaCadastro.getTxtLogin().getText());
+        eleitor.setSenha(String.valueOf(telaCadastro.getTxtSenha().getPassword()));
         //Limpando JTextFields
-        telaCadastro.getTxtNome().setText("");
         telaCadastro.getTxtEmail().setText("");
         telaCadastro.getTxtSenha().setText("");
-        telaCadastro.getTxtLogin().setText("");
         //Adicionando o Eleitor no ArrayList.
-        eleitorDAO.Adicionar(eleitor);
-        JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.", "MVF - Cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            eleitorDAO.adicionar(eleitor);
+            JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.", "MVF - Cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Cadastro não efetuado. Favor, consultar o administrador do sistema", "MVF - Cadastro não realizado", JOptionPane.INFORMATION_MESSAGE);
+            ex.printStackTrace();
+        }
     }
 }
