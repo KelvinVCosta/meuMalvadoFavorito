@@ -1,4 +1,4 @@
-package edu.controller;
+package edu.model.dao;
 
 import java.sql.*;
 
@@ -11,6 +11,13 @@ public class PostgreConnection {
     private String username = "postgres";
     private String password = "admin";
 
+
+    protected Object select (String username) throws SQLException {
+        private String query = ~"SELECT * FROM "
+
+        connection = DriverManager.getConnection(url, username, password);
+
+    }
 
     public void connection () {
         try {
