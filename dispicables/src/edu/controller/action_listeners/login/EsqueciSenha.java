@@ -13,7 +13,6 @@ public class EsqueciSenha implements ActionListener {
     private TelaEsqueciSenha telaEsqueci;
     private final JFrame janelaAnterior;
 
-
     public EsqueciSenha(JFrame janelaAnterior, TelaEsqueciSenha telaEsqueci ) {
         this.janelaAnterior = janelaAnterior;
         this.telaEsqueci = telaEsqueci;
@@ -27,7 +26,7 @@ public class EsqueciSenha implements ActionListener {
                 new TelaLogin();
                 janelaAnterior.dispose();
                 JOptionPane.showMessageDialog(null, "Enviamos uma senha nova para seu email", "MVF - EMAIL ENVIADO", JOptionPane.INFORMATION_MESSAGE);
-                //TODO: Fazer enviar um email para este email valido
+
             } else {
                 JOptionPane.showMessageDialog(null, "Email incorreto, por favor coloque um email valido", "MVF - Email incorreto", JOptionPane.ERROR_MESSAGE);
             }
