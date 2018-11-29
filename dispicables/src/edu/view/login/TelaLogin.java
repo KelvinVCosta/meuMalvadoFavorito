@@ -53,7 +53,7 @@ public class TelaLogin {
         GridBagConstraints gbc = new GridBagConstraints();
 
 // 		Criação para colocar dentro do painel
-        JLabel login = new JLabel("Login");
+        JLabel login = new JLabel("Email");
         JLabel senha = new JLabel("Senha");
 
         JButton btnEsqSen = new JButton("Esqueci a senha");
