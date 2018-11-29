@@ -12,6 +12,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +27,11 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 
 public class TelaVotar {
-    private List<Proposicao> proposicoes = new ArrayList<>();
     JFrame janela;
     JLabel lblTipoProposicao;
     JTextArea areaConteudoProposicao;
-    int i = 0;
+    int i = 1;
+    Proposicao proposicao;
     String login;
 
     public int getI() {
@@ -61,13 +62,18 @@ public class TelaVotar {
         criarLayout();
     }
 
-
     public void criarLayout() {
         ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
-        proposicoes = proposicaoDAO.preencheProposicoes();
-        Votar votarOuvinte = new Votar(login,this,proposicoes);
+        try {
+            proposicao = proposicaoDAO.getProposicao(i);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Votar votarOuvinte = new Votar(login,this, proposicao);
 //		Criação de Janela, painel e objetos necessários.
-        janela = new JFrame(proposicoes.get(i).getEmenta());
+        janela = new JFrame(proposicao.getEmenta());
         // proposição mostrada na tela.
         JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
         // GridBagLayout.
@@ -79,7 +85,7 @@ public class TelaVotar {
         // Paneil.
 
 //		Criação de objetos que seram comportados dentro dos paineis.
-        lblTipoProposicao = new JLabel(proposicoes.get(i).getEmentaDetalhada());
+        lblTipoProposicao = new JLabel(proposicao.getEmentaDetalhada());
         // proposição mostrada na tela.
         areaConteudoProposicao = new JTextArea(); // Criando TxtArea
         areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
@@ -87,7 +93,7 @@ public class TelaVotar {
         scrConteudo.setVisible(true);
         scrConteudo.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS); // Deixando o Scrol Bar
         // sempre visivel.
-        areaConteudoProposicao.setText(proposicoes.get(i).getTexto());
+        areaConteudoProposicao.setText(proposicao.getTexto());
         areaConteudoProposicao.setLineWrap(true);
         areaConteudoProposicao.setWrapStyleWord(true);
 
@@ -121,7 +127,7 @@ public class TelaVotar {
 
 //		Adicionando acoes aos botoes
         ActionVotar votarTela = new ActionVotar(janela, this);
-        ActionNavegar votarNavegar = new ActionNavegar(this, proposicoes);
+        ActionNavegar votarNavegar = new ActionNavegar(this);
         btnCancel.addActionListener(votarTela);
         btnContra.addActionListener(votarOuvinte);
         btnFavor.addActionListener(votarOuvinte);

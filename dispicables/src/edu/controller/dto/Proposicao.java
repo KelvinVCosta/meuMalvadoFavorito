@@ -5,21 +5,12 @@ import java.util.Date;
 public class Proposicao {
 
 	int id;
+	String ementa;
     String ementaDetalhada;
 	Date dataApresentacao;
-	String ementa;
 	String texto;
 
-    public Proposicao(int id, String ementaDetalhada, Date dataApresentacao, String ementa, String texto) {
-        this.id = id;
-        this.ementaDetalhada = ementaDetalhada;
-        this.dataApresentacao = dataApresentacao;
-        this.ementa = ementa;
-        this.texto = texto;
-    }
-
-
-	public int getId() {
+    public int getId() {
 		return id;
 	}
 

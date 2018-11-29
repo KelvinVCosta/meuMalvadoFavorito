@@ -14,14 +14,14 @@ public class Votar implements ActionListener {
     JFrame janelaAnterior;
     String login;
     TelaVotar telaVotar;
-    List<Proposicao> proposicoes;
+    Proposicao proposicao;
     int id;
     VotoEleitorDAO votoEleitorDao = new VotoEleitorDAO();
     
-    public Votar( String login, TelaVotar telaVotar, List<Proposicao> proposicoes) {
+    public Votar( String login, TelaVotar telaVotar, Proposicao proposicao) {
         this.login = login;
         this.telaVotar = telaVotar;
-        this.proposicoes = proposicoes;
+        this.proposicao = proposicao;
     }
 
     public void setId(int id) {
@@ -30,7 +30,7 @@ public class Votar implements ActionListener {
 
     private void jump(int voto) {
     		VotoEleitor votoEleitor = new VotoEleitor();
-	    	votoEleitor.setId(proposicoes.get(telaVotar.getI()).getId());
+	    	votoEleitor.setId(proposicao.getId());
 	    	votoEleitor.setLoginEleitor(login);
 	    	votoEleitor.setVoto(voto);
 	    	

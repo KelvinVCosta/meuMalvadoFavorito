@@ -11,6 +11,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.JTextComponent;
 
-//Referente ao protótipo TelaAlterarDetalhes
+//Referente ao protï¿½tipo TelaAlterarDetalhes
 
 public class TelaAlterar2 {
 	private List<Proposicao> proposicoes = new ArrayList<>();
@@ -34,6 +35,7 @@ public class TelaAlterar2 {
     JTextArea areaConteudoProposicao;
     int i = 0;
     String login;
+    Proposicao proposicao;
 
     public int getI() {
         return i;
@@ -57,21 +59,27 @@ public class TelaAlterar2 {
     }
 
     public void criarLayout() {
-    	ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
-        proposicoes = proposicaoDAO.preencheProposicoes();
-//		Criação de Janela, painel e objetos necessários.
-        janela = new JFrame(proposicoes.get(i).getEmenta());
+        ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
+        try {
+            proposicao = proposicaoDAO.getProposicao(i);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+//		CriaÃ§Ã£o de Janela, painel e objetos necessÃ¡rios.
+        janela = new JFrame(proposicao.getEmenta());
 
         JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
         // GridBagLayout.
         GridBagConstraints c = new GridBagConstraints();
 
         JPanel painelConteudo = new JPanel(new BorderLayout()); // Criando o Painel Conteudo e atribuido o Border Layout
-        // (Dentro deste painel, somente irá o texto;
-        painelConteudo.setBorder(new CompoundBorder(new TitledBorder("Conteúdo"), null)); // Colocando a borda no
+        // (Dentro deste painel, somente irï¿½ o texto;
+        painelConteudo.setBorder(new CompoundBorder(new TitledBorder("Conteï¿½do"), null)); // Colocando a borda no
         // Paneil.
 
-//		Criação de objetos que seram comportados dentro dos paineis.
+//		Criaï¿½ï¿½o de objetos que seram comportados dentro dos paineis.
 
         String[] tipo = {"Tipo", "Teste2", "Teste3"};
         String[] titulo = {"Titulo", "Teste2", "Teste3"};
@@ -80,20 +88,20 @@ public class TelaAlterar2 {
 
 
         areaConteudoProposicao = new JTextArea(); // Criando TxtArea
-        areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
+        areaConteudoProposicao.setEditable(false); // Tornando o TxtArea nï¿½o editï¿½vel
         JScrollPane scrConteudo = new JScrollPane(areaConteudoProposicao); // Criando o ScrollBar e atribuindo ao TxtArea
         scrConteudo.setVisible(true);
         scrConteudo.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS); // Deixando o Scrol Bar
         // sempre visivel.
-        areaConteudoProposicao.setText(proposicoes.get(i).getTexto());
+        areaConteudoProposicao.setText(proposicao.getTexto());
         areaConteudoProposicao.setLineWrap(true);
         areaConteudoProposicao.setWrapStyleWord(true);
 
-//		Criação de botões
+//		Criaï¿½ï¿½o de botï¿½es
         JButton btnAlterar = new JButton("Alterar");
         JButton btnCancel = new JButton("Cancelar");
         JButton btnVoltar = new JButton("Anterior");
-        JButton btnProx = new JButton("Próximo");
+        JButton btnProx = new JButton("Prï¿½ximo");
         JButton btnPesquisar = new JButton("Pesquisar");
 
 //		Adicionando acoes aos botoes
@@ -105,7 +113,7 @@ public class TelaAlterar2 {
         btnProx.addActionListener(actionNavegar);
         btnPesquisar.addActionListener(alterarOuvinte);
 
-        JLabel lblVoto = new JLabel("Favor/Contra"); //TODO: pegar o voto realizado do objeto e setar no label.
+        JLabel lblVoto = new JLabel("Favor/Contra");
 
         JPanel painelBotoes = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
