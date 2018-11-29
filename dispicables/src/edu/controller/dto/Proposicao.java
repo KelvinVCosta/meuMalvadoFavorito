@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Proposicao {
 
-	int id;
-	String ementa;
-    String ementaDetalhada;
-	Date dataApresentacao;
-	String texto;
+	private int id;
+    private String ementa;
+    private String ementaDetalhada;
+    private Date dataApresentacao;
+    private String texto;
 
     public int getId() {
 		return id;

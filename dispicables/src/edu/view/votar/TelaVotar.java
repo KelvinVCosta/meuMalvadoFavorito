@@ -30,7 +30,7 @@ public class TelaVotar {
     JFrame janela;
     JLabel lblTipoProposicao;
     JTextArea areaConteudoProposicao;
-    int i = 1;
+    int i = 0;
     String login;
     List<Proposicao> proposicoes;
 
@@ -127,7 +127,7 @@ public class TelaVotar {
 
 //		Adicionando acoes aos botoes
         ActionVotar votarTela = new ActionVotar(janela, this);
-        ActionNavegar votarNavegar = new ActionNavegar(this);
+        ActionNavegar votarNavegar = new ActionNavegar(this, proposicoes);
         btnCancel.addActionListener(votarTela);
         btnContra.addActionListener(votarOuvinte);
         btnFavor.addActionListener(votarOuvinte);

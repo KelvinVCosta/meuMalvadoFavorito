@@ -61,7 +61,7 @@ public class TelaAlterar2 {
     public void criarLayout() {
         ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
         try {
-            proposicao = proposicaoDAO.getProposicao(i);
+            proposicoes = proposicaoDAO.getProposicao();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
