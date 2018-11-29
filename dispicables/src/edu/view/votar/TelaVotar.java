@@ -31,8 +31,8 @@ public class TelaVotar {
     JLabel lblTipoProposicao;
     JTextArea areaConteudoProposicao;
     int i = 1;
-    Proposicao proposicao;
     String login;
+    List<Proposicao> proposicoes;
 
     public int getI() {
         return i;
@@ -65,15 +65,15 @@ public class TelaVotar {
     public void criarLayout() {
         ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
         try {
-            proposicao = proposicaoDAO.getProposicao(i);
+            proposicoes = proposicaoDAO.getProposicao();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Votar votarOuvinte = new Votar(login,this, proposicao);
+        Votar votarOuvinte = new Votar(login,this, proposicoes.get(i));
 //		Criação de Janela, painel e objetos necessários.
-        janela = new JFrame(proposicao.getEmenta());
+        janela = new JFrame(proposicoes.get(i).getEmenta());
         // proposição mostrada na tela.
         JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
         // GridBagLayout.
@@ -85,7 +85,7 @@ public class TelaVotar {
         // Paneil.
 
 //		Criação de objetos que seram comportados dentro dos paineis.
-        lblTipoProposicao = new JLabel(proposicao.getEmentaDetalhada());
+        lblTipoProposicao = new JLabel(proposicoes.get(i).getEmentaDetalhada());
         // proposição mostrada na tela.
         areaConteudoProposicao = new JTextArea(); // Criando TxtArea
         areaConteudoProposicao.setEditable(false); // Tornando o TxtArea não editável
@@ -93,7 +93,7 @@ public class TelaVotar {
         scrConteudo.setVisible(true);
         scrConteudo.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS); // Deixando o Scrol Bar
         // sempre visivel.
-        areaConteudoProposicao.setText(proposicao.getTexto());
+        areaConteudoProposicao.setText(proposicoes.get(i).getTexto());
         areaConteudoProposicao.setLineWrap(true);
         areaConteudoProposicao.setWrapStyleWord(true);
 

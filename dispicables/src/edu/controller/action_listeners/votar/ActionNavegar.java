@@ -12,16 +12,17 @@ import java.util.List;
 
 public class ActionNavegar implements ActionListener {
     TelaVotar telaVotar;
-    Proposicao proposicao ;
-    ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
-    public ActionNavegar(TelaVotar telaVotar) {
+    List<Proposicao> proposicoes;
+
+    public ActionNavegar(TelaVotar telaVotar, List<Proposicao> proposicoes) {
         this.telaVotar = telaVotar;
+        this.proposicoes = proposicoes;
     }
 
     private void setDados () {
-        telaVotar.getJanela().setTitle(proposicao.getEmenta());
-        telaVotar.getAreaConteudoProposicao().setText(proposicao.getTexto());
-        telaVotar.getLblTipoProposicao().setText(proposicao.getEmentaDetalhada());
+        telaVotar.getJanela().setTitle(proposicoes.get(telaVotar.getI()).getEmenta());
+        telaVotar.getAreaConteudoProposicao().setText(proposicoes.get(telaVotar.getI()).getTexto());
+        telaVotar.getLblTipoProposicao().setText(proposicoes.get(telaVotar.getI()).getEmentaDetalhada());
     }
 
     @Override
@@ -30,28 +31,13 @@ public class ActionNavegar implements ActionListener {
         if ("Anterior".equals(navegar.getActionCommand())){
             if (telaVotar.getI() > 1 ) {
                 telaVotar.setI(telaVotar.getI()-1);
-                try {
-                    proposicao = proposicaoDAO.getProposicao(telaVotar.getI());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
                 setDados();
             } else {
                 JOptionPane.showMessageDialog(null, "Está é a primeira proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);
             }
         } else if ("Próximo".equals(navegar.getActionCommand())){
-            if (telaVotar.getI() < 10 ) {
+            if (telaVotar.getI() < (proposicoes.size()-1) ) {
                 telaVotar.setI(telaVotar.getI()+1);
-                try {
-                    proposicao = proposicaoDAO.getProposicao(telaVotar.getI());
-                } catch (SQLException e) {
-
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
                 setDados();
             } else {
                 JOptionPane.showMessageDialog(null, "Está é a última proposição", "Erro ao mostrar anterior", JOptionPane.ERROR_MESSAGE);

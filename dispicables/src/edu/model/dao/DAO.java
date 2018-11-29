@@ -58,18 +58,4 @@ public abstract class DAO {
             con.close();
         }
 
-        protected Proposicao selectProposicao ( String query) throws SQLException, ClassNotFoundException  {
-            Class.forName(DRIVER);
-            Connection con = getConnection();
-            PreparedStatement stmt = con.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            Proposicao proposicao = new Proposicao();
-            while (rs.next()) {
-                proposicao.setId(rs.getInt("id"));
-                proposicao.setEmenta(rs.getString("ementa"));
-                proposicao.setEmentaDetalhada(rs.getString("ementa_detalhada"));
-                proposicao.setTexto(rs.getString("texto"));
-            }
-            return proposicao;
-    }
 }
