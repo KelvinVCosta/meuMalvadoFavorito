@@ -1,15 +1,15 @@
 package edu.controller.dto;
 
 public class VotoEleitor {
-	String loginEleitor;
+	int idEleitor;
 	int idProposicao;
-	int voto;
+	boolean voto;
 
-	public String getLoginEleitor() {
-		return loginEleitor;
+	public int getIdEleitor() {
+		return idEleitor;
 	}
-	public void setLoginEleitor(String loginEleitor) {
-		this.loginEleitor = loginEleitor;
+	public void setIdEleitor(int idEleitor) {
+		this.idEleitor = idEleitor;
 	}
 	public int getId() {
 		return idProposicao;
@@ -17,15 +17,15 @@ public class VotoEleitor {
 	public void setId(int id) {
 		this.idProposicao = id;
 	}
-	public int isVoto() {
+	public boolean isVoto() {
 		return voto;
 	}
-	public void setVoto(int voto) {
+	public void setVoto(boolean voto) {
 		this.voto = voto;
 	}
-	
+
 	@Override
-    public String toString() {
-        return loginEleitor+"-"+idProposicao+"-"+voto;
-    }
+	public String toString() {
+		return idProposicao +","+ idEleitor +","+ String.valueOf(voto);
+	}
 }

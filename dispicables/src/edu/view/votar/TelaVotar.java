@@ -34,6 +34,7 @@ public class TelaVotar {
     String login;
     List<Proposicao> proposicoes;
 
+
     public int getI() {
         return i;
     }
@@ -102,7 +103,7 @@ public class TelaVotar {
         JButton btnContra = new JButton("Contra");
         JButton btnCancel = new JButton("Cancelar");
         JButton btnVoltar = new JButton("Anterior");
-        JButton btnProx = new JButton("Próximo");
+        JButton btnProx= new JButton("Próximo");
 
         JPanel painelBotoes = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();

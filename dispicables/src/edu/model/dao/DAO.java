@@ -57,5 +57,4 @@ public abstract class DAO {
             preparedStatement.executeUpdate();
             con.close();
         }
-
 }

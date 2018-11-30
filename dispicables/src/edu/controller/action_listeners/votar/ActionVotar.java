@@ -10,9 +10,10 @@ import java.awt.event.ActionListener;
 public class ActionVotar implements ActionListener {
     JFrame janelaAnterior;
     TelaVotar telaVotar;
+    String email;
     public ActionVotar(JFrame janelaAnterior, TelaVotar telaVotar) {
     	this.janelaAnterior = janelaAnterior;
-    	this.telaVotar = telaVotar;
+    	this.telaVotar = telaVotar;;
 	}
 
 	@Override

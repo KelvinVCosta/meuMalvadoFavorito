@@ -2,13 +2,14 @@ package edu.controller.action_listeners.votar;
 
 import edu.controller.dto.Proposicao;
 import edu.controller.dto.VotoEleitor;
+import edu.model.dao.EleitorDAO;
 import edu.model.dao.VotoEleitorDAO;
 import edu.view.votar.TelaVotar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.sql.SQLException;
 
 public class Votar implements ActionListener {
     JFrame janelaAnterior;
@@ -24,28 +25,29 @@ public class Votar implements ActionListener {
         this.proposicao = proposicao;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    private void jump(int voto) {
+    private void votarProposicao(boolean voto) {
     		VotoEleitor votoEleitor = new VotoEleitor();
+    		EleitorDAO EleitorDAO = new EleitorDAO();
 	    	votoEleitor.setId(proposicao.getId());
-	    	votoEleitor.setLoginEleitor(login);
-	    	votoEleitor.setVoto(voto);
+        try {
+            votoEleitor.setIdEleitor(EleitorDAO.getEleitorId(login));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        votoEleitor.setVoto(voto);
 	    	
-	    	votoEleitorDao.adiconar(votoEleitor);
+	    	votoEleitorDao.adicionar(votoEleitor);
 	    	
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if ("A Favor".equals(e.getActionCommand())) {
-            jump(1);
-            System.out.println("A favor");
+            votarProposicao(true);
         } else if ("Contra".equals(e.getActionCommand())) {
-            jump(0);
-            System.out.println("Contra");
+            votarProposicao(false);
         }
     }
 

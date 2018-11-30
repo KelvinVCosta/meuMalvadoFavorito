@@ -29,7 +29,7 @@ public class ActionNavegar implements ActionListener {
     public void actionPerformed(ActionEvent navegar)  {
 
         if ("Anterior".equals(navegar.getActionCommand())){
-            if (telaVotar.getI() > 1 ) {
+            if (telaVotar.getI() > 0 ) {
                 telaVotar.setI(telaVotar.getI()-1);
                 setDados();
             } else {

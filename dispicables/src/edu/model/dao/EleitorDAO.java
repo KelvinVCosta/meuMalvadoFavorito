@@ -26,9 +26,11 @@ public class EleitorDAO extends DAO {
         return selectBoolean(query);
     }
 
-    private int getEleitorId(String email) throws SQLException, ClassNotFoundException {
+    public int getEleitorId(String email) throws SQLException, ClassNotFoundException {
         String query = "SELECT id FROM eleitor WHERE email = '" + email + "'";
         ResultSet rs = selectRS(query);
+        rs.next();
+        System.out.println(rs.getInt("id"));
         return rs.getInt("id");
     }
 
