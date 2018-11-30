@@ -15,13 +15,10 @@ public class LastLogin {
     }
 
     private File abrirArquivo(String fileName) throws IOException {
-
         File file = new File(fileName);
-
         if(!file.exists()){
             file.createNewFile();
         }
-
         return file;
     }
 
@@ -33,7 +30,6 @@ public class LastLogin {
         bw.close();
     }
 
-
     public void getArquivo(String fileName) throws IOException {
         File file = abrirArquivo(fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -43,9 +39,7 @@ public class LastLogin {
         br.close();
     }
 
-
 	public void DeleteTxt(String fileName) throws IOException {
-		
 		File file = abrirArquivo(fileName);
 		file.delete();
 	}
