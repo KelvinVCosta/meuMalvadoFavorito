@@ -44,8 +44,10 @@ public class Votar implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if ("A Favor".equals(e.getActionCommand())) {
             votarProposicao(true);
+            JOptionPane.showMessageDialog(null, "Voto a favor realizado!", "MVF - Voto realizado", JOptionPane.INFORMATION_MESSAGE);
         } else if ("Contra".equals(e.getActionCommand())) {
             votarProposicao(false);
+            JOptionPane.showMessageDialog(null, "Voto contra realizado!", "MVF - Voto realizado", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
