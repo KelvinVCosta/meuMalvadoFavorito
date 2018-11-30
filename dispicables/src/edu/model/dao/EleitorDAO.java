@@ -1,9 +1,13 @@
 package edu.model.dao;
 
+import edu.controller.dto.ComparativoDTO;
 import edu.controller.dto.Eleitor;
+import edu.controller.dto.VotoEleitor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class EleitorDAO extends DAO {
@@ -46,7 +50,7 @@ public class EleitorDAO extends DAO {
      * @throws ClassNotFoundException
      *
      */
-    public ResultSet getComparacao(Eleitor eleitor) throws SQLException, ClassNotFoundException {
+    public List<ComparativoDTO> getComparativo(Eleitor eleitor) throws SQLException, ClassNotFoundException {
         int id = getEleitorId(eleitor.getEmail());
         String query = "select\n" +
                 "\tq_vd.deputado_id,\n" +
@@ -90,6 +94,17 @@ public class EleitorDAO extends DAO {
                 "where ve.eleitor_id = " + id + "\n" +
                 "group by q_vd.deputado_id, d.nome;";
 
-        return selectRS(query);
+        ResultSet rs = selectRS(query);
+        List<ComparativoDTO> listaVotoEleitor = new ArrayList<ComparativoDTO>();
+        while(rs.next()){
+            ComparativoDTO c = new ComparativoDTO();
+            c.setDeputadoId(rs.getInt("deputado_id"));
+            c.setNomeDeputado(rs.getString("nome_deputado"));
+            c.setQtdVotosIguais(rs.getInt("votos_iguais"));
+            c.setQtdVotosTotais(rs.getInt("votos_totais"));
+            listaVotoEleitor.add(c);
+        }
+
+        return listaVotoEleitor;
     }
 }

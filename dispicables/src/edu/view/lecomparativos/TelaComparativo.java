@@ -34,7 +34,7 @@ public class TelaComparativo {
 		
 		painelCandidato.setBorder(new CompoundBorder(new TitledBorder("Candidato"), null));
 		
-		JLabel lblMensagem = new JLabel("De acordo com 	as suas respostas o candidato mais parecido com você é :");
+		JLabel lblMensagem = new JLabel("De acordo com as suas respostas o candidato mais parecido com você é :");
 		JTextArea txtCandidato = new JTextArea();
 		txtCandidato.setEditable(false);
 		txtCandidato.setText("Candidato");
@@ -89,8 +89,6 @@ public class TelaComparativo {
 		janela.setSize(650, 650);
 		janela.setVisible(true);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
+
 	}
 }

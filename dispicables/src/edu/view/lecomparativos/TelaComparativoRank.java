@@ -14,10 +14,10 @@ import javax.swing.JTable;
 
 public class TelaComparativoRank {
 	public TelaComparativoRank() {
-		criarLayou();
+		criarLayout();
 	}
 
-	private void criarLayou() {
+	private void criarLayout() {
 		JFrame janela = new JFrame("Lista de Votos");
 		
 		JPanel painelPrincipal = new JPanel(new BorderLayout());
