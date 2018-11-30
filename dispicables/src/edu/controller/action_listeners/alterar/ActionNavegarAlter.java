@@ -36,7 +36,6 @@ public class ActionNavegarAlter implements ActionListener  {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		//Adicionar set do voto realizado.
 		//Setar cor dependendo do voto
 	}
 

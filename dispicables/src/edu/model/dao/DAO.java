@@ -57,4 +57,16 @@ public abstract class DAO {
             preparedStatement.executeUpdate();
             con.close();
         }
+
+        protected void updateQuery(String newVoto ,int idProposicao,int idEleitor) throws SQLException, ClassNotFoundException {
+            Class.forName(DRIVER);
+            Connection con = getConnection();
+            String updateTableSQL = "UPDATE voto_eleitor SET voto ="
+                    + newVoto + " WHERE proposicao_id =" + idProposicao +" and "
+                    + " eleitor_id = " + idEleitor;
+            PreparedStatement preparedStatement = con.prepareStatement(updateTableSQL);
+            preparedStatement.executeUpdate();
+            con.close();
+        }
+
 }

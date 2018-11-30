@@ -13,12 +13,6 @@ public class Alterar3 implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ("Cancelar".equals(e.getActionCommand())) {
             janelaAnterior.dispose();
-        } else if ("Contra".equals(e.getActionCommand())) {
-//          Salva em banco a mudanca do eleitor
-        } else if ("Favor".equals(e.getActionCommand())) {
-//          Salva em banco a mudanca do eleitor
-        }
     }
 }

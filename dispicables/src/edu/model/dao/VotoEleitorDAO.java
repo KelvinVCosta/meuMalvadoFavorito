@@ -23,10 +23,14 @@ public class VotoEleitorDAO extends DAO {
 
     public String votoRealizado (int idProposicao, int idEleitor) throws SQLException, ClassNotFoundException  {
         ResultSet rs = selectRS("SELECT voto FROM voto_eleitor where proposicao_id = " + idProposicao + " and eleitor_id = "+ idEleitor );
-           rs.next();
-           if (rs.getBoolean("voto")) {
-               return "A favor";
-           }
+        rs.next();
+        if (rs.getBoolean("voto")) {
+           return "A favor";
+        }
         return "Contra";
+    }
+
+    public void alterarVoto (String voto,int idProposicao,int eleitorId) throws SQLException, ClassNotFoundException {
+        updateQuery(voto,idProposicao,eleitorId);
     }
 }

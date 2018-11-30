@@ -67,12 +67,19 @@ public class TelaAlterar2 {
     public String getLogin() {
         return login;
     }
+
     public JLabel getLblTipoProposicao() {
         return lblTipoProposicao;
     }
 
     public JTextArea getAreaConteudoProposicao() {
         return areaConteudoProposicao;
+    }
+    public int getIdProposicao (){
+        return proposicoes.get(i).getId();
+    }
+    public int getIdEleitor() throws SQLException, ClassNotFoundException {
+            return eleitorDao.getEleitorId(login);
     }
 
     public TelaAlterar2(String login) {
@@ -128,7 +135,7 @@ public class TelaAlterar2 {
         JButton btnProx = new JButton("Próximo");
 
 //		Adicionando acoes aos botoes
-        Alterar2 alterarOuvinte = new Alterar2(janela);
+        Alterar2 alterarOuvinte = new Alterar2(janela,proposicoes.get(i).getId(),eleitorDao.getEleitorId(login),this);
         ActionNavegarAlter actionNavegar = new ActionNavegarAlter(this, proposicoes);
         btnAlterar.addActionListener(alterarOuvinte);
         btnCancel.addActionListener(alterarOuvinte);
