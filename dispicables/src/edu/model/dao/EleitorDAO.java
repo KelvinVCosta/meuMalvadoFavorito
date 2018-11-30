@@ -30,7 +30,6 @@ public class EleitorDAO extends DAO {
         String query = "SELECT id FROM eleitor WHERE email = '" + email + "'";
         ResultSet rs = selectRS(query);
         rs.next();
-        System.out.println(rs.getInt("id"));
         return rs.getInt("id");
     }
 

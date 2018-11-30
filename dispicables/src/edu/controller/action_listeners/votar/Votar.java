@@ -15,20 +15,18 @@ public class Votar implements ActionListener {
     JFrame janelaAnterior;
     String login;
     TelaVotar telaVotar;
-    Proposicao proposicao;
     int id;
     VotoEleitorDAO votoEleitorDao = new VotoEleitorDAO();
     
-    public Votar( String login, TelaVotar telaVotar, Proposicao proposicao) {
+    public Votar( String login, TelaVotar telaVotar) {
         this.login = login;
         this.telaVotar = telaVotar;
-        this.proposicao = proposicao;
     }
 
     private void votarProposicao(boolean voto) {
     		VotoEleitor votoEleitor = new VotoEleitor();
     		EleitorDAO EleitorDAO = new EleitorDAO();
-	    	votoEleitor.setId(proposicao.getId());
+	    	votoEleitor.setId(telaVotar.getProposicoes().get(telaVotar.getI()).getId());
         try {
             votoEleitor.setIdEleitor(EleitorDAO.getEleitorId(login));
         } catch (SQLException e) {

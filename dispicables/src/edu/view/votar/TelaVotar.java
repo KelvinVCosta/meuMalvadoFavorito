@@ -34,6 +34,9 @@ public class TelaVotar {
     String login;
     List<Proposicao> proposicoes;
 
+    public List<Proposicao> getProposicoes() {
+        return proposicoes;
+    }
 
     public int getI() {
         return i;
@@ -72,7 +75,7 @@ public class TelaVotar {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Votar votarOuvinte = new Votar(login,this, proposicoes.get(i));
+        Votar votarOuvinte = new Votar(login,this);
 //		Criação de Janela, painel e objetos necessários.
         janela = new JFrame(proposicoes.get(i).getEmenta());
         // proposição mostrada na tela.
