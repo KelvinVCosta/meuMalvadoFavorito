@@ -95,16 +95,16 @@ public class EleitorDAO extends DAO {
                 "group by q_vd.deputado_id, d.nome;";
 
         ResultSet rs = selectRS(query);
-        List<ComparativoDTO> listaVotoEleitor = new ArrayList<ComparativoDTO>();
+        List<ComparativoDTO> listaComparativo = new ArrayList<ComparativoDTO>();
         while(rs.next()){
             ComparativoDTO c = new ComparativoDTO();
             c.setDeputadoId(rs.getInt("deputado_id"));
             c.setNomeDeputado(rs.getString("nome_deputado"));
             c.setQtdVotosIguais(rs.getInt("votos_iguais"));
             c.setQtdVotosTotais(rs.getInt("votos_totais"));
-            listaVotoEleitor.add(c);
+            listaComparativo.add(c);
         }
 
-        return listaVotoEleitor;
+        return listaComparativo;
     }
 }
