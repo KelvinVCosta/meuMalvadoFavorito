@@ -59,3 +59,25 @@ insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '7', true);
 insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '8', true);
 insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '9', true);
 insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '10', true);
+--INSERT votos do eleitor 1
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '1', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '2', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '3', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '4', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '5', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '6', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '7', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '8', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '9', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('1', '10', false);
+--INSERT votos do eleitor id 2
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '1', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '2', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '3', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '4', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '5', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '6', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '7', false);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '8', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '9', true);
+insert into voto_eleitor (eleitor_id,proposicao_id,voto) values ('2', '10', false);
