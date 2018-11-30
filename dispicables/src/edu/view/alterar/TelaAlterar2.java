@@ -135,7 +135,7 @@ public class TelaAlterar2 {
         JButton btnProx = new JButton("Próximo");
 
 //		Adicionando acoes aos botoes
-        Alterar2 alterarOuvinte = new Alterar2(janela,proposicoes.get(i).getId(),eleitorDao.getEleitorId(login),this);
+        Alterar2 alterarOuvinte = new Alterar2(janela,eleitorDao.getEleitorId(login),this);
         ActionNavegarAlter actionNavegar = new ActionNavegarAlter(this, proposicoes);
         btnAlterar.addActionListener(alterarOuvinte);
         btnCancel.addActionListener(alterarOuvinte);

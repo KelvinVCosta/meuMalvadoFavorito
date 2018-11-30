@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class Votar implements ActionListener {
-    JFrame janelaAnterior;
     String login;
     TelaVotar telaVotar;
     int id;
@@ -35,19 +34,15 @@ public class Votar implements ActionListener {
             e.printStackTrace();
         }
         votoEleitor.setVoto(voto);
-	    	
 	    	votoEleitorDao.adicionar(votoEleitor);
-	    	
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if ("A Favor".equals(e.getActionCommand())) {
             votarProposicao(true);
-            JOptionPane.showMessageDialog(null, "Voto a favor realizado!", "MVF - Voto realizado", JOptionPane.INFORMATION_MESSAGE);
         } else if ("Contra".equals(e.getActionCommand())) {
             votarProposicao(false);
-            JOptionPane.showMessageDialog(null, "Voto contra realizado!", "MVF - Voto realizado", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

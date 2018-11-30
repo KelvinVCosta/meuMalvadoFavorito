@@ -10,10 +10,9 @@ import java.awt.event.ActionListener;
 
 public class Alterar2 implements ActionListener {
     JFrame janelaAnterior;
-    int idProposicao;
     int eleitorId;
     TelaAlterar2 telaAlterar2;
-    public Alterar2(JFrame janelaAnterior, int idProposicao, int eleitorId,TelaAlterar2 telaAlterar2 ) {
+    public Alterar2(JFrame janelaAnterior, int eleitorId,TelaAlterar2 telaAlterar2 ) {
         this.janelaAnterior = janelaAnterior;
         this.eleitorId = eleitorId;
         this.telaAlterar2 = telaAlterar2;

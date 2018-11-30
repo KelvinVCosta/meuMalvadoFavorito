@@ -45,7 +45,6 @@ public class Alterar3Votar implements ActionListener {
             } catch (ClassNotFoundException e1) {
                 e1.printStackTrace();
             }
-
         }
     }
 

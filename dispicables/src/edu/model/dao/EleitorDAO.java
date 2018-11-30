@@ -37,6 +37,18 @@ public class EleitorDAO extends DAO {
         return rs.getInt("id");
     }
 
+    public Eleitor getEleitor(String email) throws SQLException, ClassNotFoundException {
+        Eleitor eleitor = new Eleitor();
+        String query = "SELECT id FROM eleitor WHERE email = '" + email + "'";
+        ResultSet rs = selectRS(query);
+        while (rs.next()){
+            eleitor.setId(rs.getInt("id"));
+            System.out.println(rs.getInt("id"));
+            eleitor.setEmail(rs.getString("email"));
+        }
+        return eleitor;
+    }
+
     /**
      * Classe para comparação de votos do eleitor com os parlamentares
      * Retorna os seguintes headers dentro do ResultSet:
@@ -51,7 +63,7 @@ public class EleitorDAO extends DAO {
      *
      */
     public List<ComparativoDTO> getComparativo(Eleitor eleitor) throws SQLException, ClassNotFoundException {
-        int id = getEleitorId(eleitor.getEmail());
+        int  idEleitor = eleitor.getId();
         String query = "select\n" +
                 "\tq_vd.deputado_id,\n" +
                 "\td.nome nome_deputado,\n" +
@@ -91,7 +103,7 @@ public class EleitorDAO extends DAO {
                 "on ve.proposicao_id = q_vd.proposicao_id\n" +
                 "inner join deputado d\n" +
                 "on q_vd.deputado_id = d.id \n" +
-                "where ve.eleitor_id = " + id + "\n" +
+                "where ve.eleitor_id = " + idEleitor + "\n" +
                 "group by q_vd.deputado_id, d.nome;";
 
         ResultSet rs = selectRS(query);
@@ -100,11 +112,11 @@ public class EleitorDAO extends DAO {
             ComparativoDTO c = new ComparativoDTO();
             c.setDeputadoId(rs.getInt("deputado_id"));
             c.setNomeDeputado(rs.getString("nome_deputado"));
+            System.out.println(rs.getString("nome_deputado"));
             c.setQtdVotosIguais(rs.getInt("votos_iguais"));
             c.setQtdVotosTotais(rs.getInt("votos_totais"));
             listaComparativo.add(c);
         }
-
         return listaComparativo;
     }
 }

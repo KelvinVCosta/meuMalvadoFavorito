@@ -22,7 +22,7 @@ public class Main implements ActionListener {
             new TelaVotar(login);
             janelaAnterior.dispose();
         } else if ("Ler Comparativos".equals(e.getActionCommand())) {
-            new TelaComparativo();
+            new TelaComparativo(login);
             janelaAnterior.dispose();
         } else if ("Verificar votos realizados".equals(e.getActionCommand())) {
             new TelaAlterar2(login);

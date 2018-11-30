@@ -13,8 +13,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class TelaComparativoRank {
-	public TelaComparativoRank() {
+	String login;
+	public TelaComparativoRank(String login) {
 		criarLayout();
+		this.login = login;
 	}
 
 	private void criarLayout() {
@@ -26,10 +28,10 @@ public class TelaComparativoRank {
 		JPanel painelBotao = new JPanel();
 		
 		String[][] data = { 
-	            { "Kundan Kumar Jha", "100%", "Detalhes" }, 
-	            { "Anand Jha", "80%", "Detalhes" },
+	            { "Kundan Kumar Jha", "100%" },
+	            { "Anand Jha", "80%" },
 	        }; 
-		String[] columnNames = { "Candidatos", "% Votos", "Detalhes"};
+		String[] columnNames = { "Nome deputado", "Votos iguais","Votos totais"};
 		
 		JTable tbVotos = new JTable(data, columnNames);
 		tbVotos.setBounds(30, 40, 200, 300);
@@ -40,7 +42,7 @@ public class TelaComparativoRank {
 		
 		painelBotao.add(btnVoltar);
 
-		ComparativosRank comparativosRankOuvinte = new ComparativosRank(janela);
+		ComparativosRank comparativosRankOuvinte = new ComparativosRank(janela,login);
 		btnVoltar.addActionListener(comparativosRankOuvinte);
 		
 		painelTabela.add(scrPane);

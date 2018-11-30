@@ -4,6 +4,7 @@ public class Eleitor {
 
     private String email;
     private String senha;
+    private int id;
 
 	public String getEmail() {
 		return email;
@@ -16,6 +17,12 @@ public class Eleitor {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
