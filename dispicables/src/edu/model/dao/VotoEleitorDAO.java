@@ -20,4 +20,3 @@ public class VotoEleitorDAO extends DAO {
         }
     }
 }
-

@@ -2,8 +2,10 @@ package edu.view.alterar;
 
 import edu.controller.action_listeners.alterar.ActionNavegarAlter;
 import edu.controller.action_listeners.alterar.Alterar2;
+import edu.controller.action_listeners.votar.ActionNavegar;
 import edu.controller.dto.Proposicao;
 import edu.model.dao.ProposicaoDAO;
+import edu.view.votar.TelaVotar;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -27,15 +29,19 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.JTextComponent;
 
-//Referente ao protï¿½tipo TelaAlterarDetalhes
+//Referente ao prot?tipo TelaAlterarDetalhes
 
 public class TelaAlterar2 {
-	private List<Proposicao> proposicoes = new ArrayList<>();
-	JFrame janela;
+    JFrame janela;
+    JLabel lblTipoProposicao;
     JTextArea areaConteudoProposicao;
     int i = 0;
     String login;
-    Proposicao proposicao;
+    List<Proposicao> proposicoes;
+
+    public List<Proposicao> getProposicoes() {
+        return proposicoes;
+    }
 
     public int getI() {
         return i;
@@ -44,15 +50,22 @@ public class TelaAlterar2 {
     public void setI(int i) {
         this.i = i;
     }
-    
+
     public JFrame getJanela() {
         return janela;
     }
 
     public String getLogin() {
-    	return login;
-    }	
-    
+        return login;
+    }
+    public JLabel getLblTipoProposicao() {
+        return lblTipoProposicao;
+    }
+
+    public JTextArea getAreaConteudoProposicao() {
+        return areaConteudoProposicao;
+    }
+
     public TelaAlterar2(String login) {
     	this.login = login;
         criarLayout();
@@ -67,53 +80,46 @@ public class TelaAlterar2 {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-//		CriaÃ§Ã£o de Janela, painel e objetos necessÃ¡rios.
-        janela = new JFrame(proposicao.getEmenta());
+//		Criação de Janela, painel e objetos necessários.
+        janela = new JFrame(proposicoes.get(i).getEmenta());
 
         JPanel painelPrincipal = new JPanel(new GridBagLayout()); // Criando o painel principal e setando como
         // GridBagLayout.
         GridBagConstraints c = new GridBagConstraints();
 
         JPanel painelConteudo = new JPanel(new BorderLayout()); // Criando o Painel Conteudo e atribuido o Border Layout
-        // (Dentro deste painel, somente irï¿½ o texto;
-        painelConteudo.setBorder(new CompoundBorder(new TitledBorder("Conteï¿½do"), null)); // Colocando a borda no
+        // (Dentro deste painel, somente ir? o texto;
+        painelConteudo.setBorder(new CompoundBorder(new TitledBorder("Conteúdo"), null)); // Colocando a borda no
         // Paneil.
 
-//		Criaï¿½ï¿½o de objetos que seram comportados dentro dos paineis.
-
-        String[] tipo = {"Tipo", "Teste2", "Teste3"};
-        String[] titulo = {"Titulo", "Teste2", "Teste3"};
-        JComboBox cmbTipo = new JComboBox<String>(tipo);
-        JComboBox cmbTitulo = new JComboBox<String>(titulo);
-
+//		Cria??o de objetos que seram comportados dentro dos paineis.
+        lblTipoProposicao = new JLabel(proposicoes.get(i).getEmentaDetalhada());
 
         areaConteudoProposicao = new JTextArea(); // Criando TxtArea
-        areaConteudoProposicao.setEditable(false); // Tornando o TxtArea nï¿½o editï¿½vel
+        areaConteudoProposicao.setEditable(false); // Tornando o TxtArea n?o edit?vel
         JScrollPane scrConteudo = new JScrollPane(areaConteudoProposicao); // Criando o ScrollBar e atribuindo ao TxtArea
         scrConteudo.setVisible(true);
         scrConteudo.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS); // Deixando o Scrol Bar
         // sempre visivel.
-        areaConteudoProposicao.setText(proposicao.getTexto());
+        areaConteudoProposicao.setText(proposicoes.get(i).getTexto());
         areaConteudoProposicao.setLineWrap(true);
         areaConteudoProposicao.setWrapStyleWord(true);
 
-//		Criaï¿½ï¿½o de botï¿½es
+//		Cria??o de bot?es
         JButton btnAlterar = new JButton("Alterar");
         JButton btnCancel = new JButton("Cancelar");
         JButton btnVoltar = new JButton("Anterior");
-        JButton btnProx = new JButton("Prï¿½ximo");
-        JButton btnPesquisar = new JButton("Pesquisar");
+        JButton btnProx = new JButton("Próximo");
 
 //		Adicionando acoes aos botoes
         Alterar2 alterarOuvinte = new Alterar2(janela);
-        ActionNavegarAlter actionNavegar = new ActionNavegarAlter(this,proposicoes);
+        ActionNavegarAlter actionNavegar = new ActionNavegarAlter(this, proposicoes);
         btnAlterar.addActionListener(alterarOuvinte);
         btnCancel.addActionListener(alterarOuvinte);
         btnVoltar.addActionListener(actionNavegar);
         btnProx.addActionListener(actionNavegar);
-        btnPesquisar.addActionListener(alterarOuvinte);
 
-        JLabel lblVoto = new JLabel("Favor/Contra");
+        JLabel lblVoto = new JLabel("Favor/Contra"); //TODO: Fazer o voto receber pela query.
 
         JPanel painelBotoes = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -144,13 +150,11 @@ public class TelaAlterar2 {
 //		Adicionando o Tipo Proposicao no inicio do painel.
 //		c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.FIRST_LINE_START;
-        painelPrincipal.add(cmbTipo, c);
+        painelPrincipal.add(lblTipoProposicao, c);
 
-        c.anchor = GridBagConstraints.PAGE_START;
-        painelPrincipal.add(cmbTitulo, c);
 
         c.anchor = GridBagConstraints.FIRST_LINE_END;
-        painelPrincipal.add(btnPesquisar, c);
+
 
 //		Adicionando o PainelConteudo no principal.
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -182,12 +186,5 @@ public class TelaAlterar2 {
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
-
-
-
-	public JTextComponent getAreaConteudoProposicao() {
-		// TODO Auto-generated method stub
-		return areaConteudoProposicao;
-	}
 
 }

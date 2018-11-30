@@ -1,13 +1,11 @@
 package edu.controller.action_listeners.votar;
 
 import edu.controller.dto.Proposicao;
-import edu.model.dao.ProposicaoDAO;
 import edu.view.votar.TelaVotar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.List;
 
 public class ActionNavegar implements ActionListener {
@@ -15,7 +13,7 @@ public class ActionNavegar implements ActionListener {
     List<Proposicao> proposicoes;
 
     public ActionNavegar(TelaVotar telaVotar, List<Proposicao> proposicoes) {
-        this.telaVotar = telaVotar;
+        this.telaVotar =  telaVotar;
         this.proposicoes = proposicoes;
     }
 
