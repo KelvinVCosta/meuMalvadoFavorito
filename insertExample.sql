@@ -20,3 +20,42 @@ insert into proposicao (id,ementa,data_apresentacao,ementa_detalhada, texto, tip
 insert into proposicao (id,ementa,data_apresentacao,ementa_detalhada, texto, tipo_proposicao_id) values (8,'EMENTA EXEMPlO 8', '2016-06-11', 'EMENTA DETAlHE EXAMPlE 8', 'TEXT EMENTA 8',8);
 insert into proposicao (id,ementa,data_apresentacao,ementa_detalhada, texto, tipo_proposicao_id) values (9,'EMENTA EXEMPlO 9', '2016-06-11', 'EMENTA DETAlHE EXAMPlE 9', 'TEXT EMENTA 9',9);
 insert into proposicao (id,ementa,data_apresentacao,ementa_detalhada, texto, tipo_proposicao_id) values (10,'EMENTA EXEMPlO 10','2016-06-11','EMENTA DETAlHE EXAMPlE 10','TEXT EMENTA 10',10);
+-- INSERT unidade_federativa (Necessário para insert de deputado)
+insert into unidade_federativa (sigla, nome) values ('SP','Sao Paulo');
+insert into unidade_federativa (sigla, nome) values ('RJ','Rio de Janeiro');
+-- INSERT Deputado
+insert into deputado (id,unidade_federativa_sigla, nome, sigla_partido) values ('1','SP', 'Deputado1', 'PT');
+insert into deputado (id,unidade_federativa_sigla, nome, sigla_partido) values ('2','RJ', 'Deputado2', 'PR');
+ -- INSERT votacao
+insert into votacao (id, proposicao_id, data_votacao) values ('1', '1', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('2', '2', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('3', '3', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('4', '4', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('5', '5', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('6', '6', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('7', '7', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('8', '8', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('9', '9', '2016-06-12');
+insert into votacao (id, proposicao_id, data_votacao) values ('10', '10', '2016-06-12');
+--INSERT votos do deputado 1
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '1', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '2', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '3', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '4', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '5', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '6', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '7', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '8', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '9', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('1', '10', true);
+--INSERT votos do deuputado id 2
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '1', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '2', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '3', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '4', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '5', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '6', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '7', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '8', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '9', true);
+insert into voto_deputado (deputado_id,votacao_id,voto) values ('2', '10', true);
