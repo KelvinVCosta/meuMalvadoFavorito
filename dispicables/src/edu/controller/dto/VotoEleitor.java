@@ -28,4 +28,5 @@ public class VotoEleitor {
 	public String toString() {
 		return idProposicao +","+ idEleitor +","+ String.valueOf(voto);
 	}
+
 }

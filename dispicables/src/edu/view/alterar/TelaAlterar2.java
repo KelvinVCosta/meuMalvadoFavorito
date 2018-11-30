@@ -4,7 +4,9 @@ import edu.controller.action_listeners.alterar.ActionNavegarAlter;
 import edu.controller.action_listeners.alterar.Alterar2;
 import edu.controller.action_listeners.votar.ActionNavegar;
 import edu.controller.dto.Proposicao;
+import edu.model.dao.EleitorDAO;
 import edu.model.dao.ProposicaoDAO;
+import edu.model.dao.VotoEleitorDAO;
 import edu.view.votar.TelaVotar;
 
 import java.awt.BorderLayout;
@@ -34,13 +36,20 @@ import javax.swing.text.JTextComponent;
 public class TelaAlterar2 {
     JFrame janela;
     JLabel lblTipoProposicao;
+    JLabel lblVoto;
     JTextArea areaConteudoProposicao;
     int i = 0;
     String login;
     List<Proposicao> proposicoes;
+    EleitorDAO eleitorDao = new EleitorDAO();
+
 
     public List<Proposicao> getProposicoes() {
         return proposicoes;
+    }
+
+    public JLabel getLblVoto() {
+        return lblVoto;
     }
 
     public int getI() {
@@ -68,11 +77,18 @@ public class TelaAlterar2 {
 
     public TelaAlterar2(String login) {
     	this.login = login;
-        criarLayout();
+        try {
+            criarLayout();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void criarLayout() {
+    public void criarLayout() throws SQLException, ClassNotFoundException {
         ProposicaoDAO proposicaoDAO = new ProposicaoDAO();
+        VotoEleitorDAO votoEleitorDAO = new VotoEleitorDAO();
         try {
             proposicoes = proposicaoDAO.getProposicao();
         } catch (SQLException e) {
@@ -119,7 +135,8 @@ public class TelaAlterar2 {
         btnVoltar.addActionListener(actionNavegar);
         btnProx.addActionListener(actionNavegar);
 
-        JLabel lblVoto = new JLabel("Favor/Contra"); //TODO: Fazer o voto receber pela query.
+        lblVoto = new JLabel(votoEleitorDAO.votoRealizado(proposicoes.get(i).getId(),eleitorDao.getEleitorId(login)));
+
 
         JPanel painelBotoes = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();

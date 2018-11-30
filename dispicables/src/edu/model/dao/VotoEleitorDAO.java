@@ -1,6 +1,7 @@
 package edu.model.dao;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import edu.controller.datamanager.Manager;
@@ -18,5 +19,14 @@ public class VotoEleitorDAO extends DAO {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public String votoRealizado (int idProposicao, int idEleitor) throws SQLException, ClassNotFoundException  {
+        ResultSet rs = selectRS("SELECT voto FROM voto_eleitor where proposicao_id = " + idProposicao + " and eleitor_id = "+ idEleitor );
+           rs.next();
+           if (rs.getBoolean("voto")) {
+               return "A favor";
+           }
+        return "Contra";
     }
 }
