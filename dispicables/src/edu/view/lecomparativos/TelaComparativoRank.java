@@ -1,10 +1,13 @@
 package edu.view.lecomparativos;
 
+import edu.controller.TabelaComparativo;
 import edu.controller.action_listeners.le_comparativos.ComparativosRank;
+import edu.controller.dto.ComparativoDTO;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,9 +17,12 @@ import javax.swing.JTable;
 
 public class TelaComparativoRank {
 	String login;
-	public TelaComparativoRank(String login) {
-		criarLayout();
+	List<ComparativoDTO> comparativoDTO;
+	public TelaComparativoRank(String login, List<ComparativoDTO> comparativoDTO) {
 		this.login = login;
+		this.comparativoDTO = comparativoDTO;
+		criarLayout();
+
 	}
 
 	private void criarLayout() {
@@ -26,14 +32,9 @@ public class TelaComparativoRank {
 		
 		JPanel painelTabela = new JPanel();
 		JPanel painelBotao = new JPanel();
-		
-		String[][] data = { 
-	            { "Kundan Kumar Jha", "100%" },
-	            { "Anand Jha", "80%" },
-	        }; 
-		String[] columnNames = { "Nome deputado", "Votos iguais","Votos totais"};
-		
-		JTable tbVotos = new JTable(data, columnNames);
+
+		TabelaComparativo tabelaComparativo = new TabelaComparativo(comparativoDTO);
+		JTable tbVotos = new JTable(tabelaComparativo);
 		tbVotos.setBounds(30, 40, 200, 300);
 		
 		JScrollPane scrPane = new JScrollPane(tbVotos);

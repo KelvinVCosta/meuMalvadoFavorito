@@ -26,15 +26,16 @@ public class TelaComparativo {
     EleitorDAO eleitorDao = new EleitorDAO();
     List<ComparativoDTO> comparativoDTO = new ArrayList<>();
 
+
     public TelaComparativo(String login) {
-        criarLayout();
         this.login = login;
+        criarLayout();
     }
 
 
     private void criarLayout() {
         try {
-            comparativoDTO = eleitorDao.getComparativo(eleitorDao.getEleitor(login));
+            comparativoDTO = eleitorDao.getComparativo(eleitorDao.getEleitorId(login));
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -55,12 +56,12 @@ public class TelaComparativo {
         JLabel lblMensagem = new JLabel("De acordo com as suas respostas o candidato mais parecido com você é :");
         JTextArea txtCandidato = new JTextArea();
         txtCandidato.setEditable(false);
-        txtCandidato.setText("Candidato");
-//        txtCandidato.setText(comparativoDTO.get(0).getNomeDeputado());
+//        txtCandidato.setText("Candidato");
+        txtCandidato.setText(comparativoDTO.get(0).getNomeDeputado());
         JButton btnRank = new JButton("Ver Rank");
         JButton btnVoltar = new JButton("Voltar");
 
-        Comparativo comparativoOuvinte = new Comparativo(janela, login);
+        Comparativo comparativoOuvinte = new Comparativo(janela, login,comparativoDTO);
         btnVoltar.addActionListener(comparativoOuvinte);
         btnRank.addActionListener(comparativoOuvinte);
 
