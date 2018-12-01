@@ -8,18 +8,15 @@ import java.awt.event.ActionListener;
 
 public class ComparativosRank implements ActionListener {
     JFrame janelaAnterior;
-
-    public ComparativosRank(JFrame janelaAnterior) {
+    String login;
+    public ComparativosRank(JFrame janelaAnterior, String login) {
         this.janelaAnterior = janelaAnterior;
+        this.login = login;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if("Voltar".equals(e.getActionCommand())){
             janelaAnterior.dispose();
-            new TelaComparativo();
-        } else if ("Detalhes".equals(e.getActionCommand())){
-//            TODO: BOTAO A SER IMPLEMENTADO DENTRO DO JTEXT AREA
-        }
+            new TelaComparativo(login);
     }
 }

@@ -1,6 +1,7 @@
 package edu.view.alterar;
 
 import edu.controller.action_listeners.alterar.Alterar3;
+import edu.controller.action_listeners.alterar.Alterar3Votar;
 
 
 import java.awt.Dimension;
@@ -19,19 +20,19 @@ import javax.swing.JPanel;
 //Referente ao protótipo TelaAlterarDetalhes
 
 public class TelaAlterar3 {
-	public TelaAlterar3() {
+	int eleitorId;
+	public TelaAlterar2 telaAlterar2;
+	public TelaAlterar3(TelaAlterar2 telaAlterar2) {
+		this.telaAlterar2 = telaAlterar2;
 		criarLayout();
+	}
+	public int getEleitorId() {
+		return eleitorId;
 	}
 
 	public void criarLayout() {
 //		Criação de Janela, painel e objetos necessários.
-		JFrame janela = new JFrame("Deseja alterar seu voto?"); // TODO: Alterar o Título da janea conforme o titulo da
-		// proposição mostrada na tela.
-
-		// GridBagLayout.
-
-		// sempre visivel.
-
+		JFrame janela = new JFrame("Deseja alterar seu voto?");
 //		Criação de botões
 		JButton btnCancel = new JButton("Cancelar");
 		JButton btnContra = new JButton("Contra");
@@ -39,9 +40,10 @@ public class TelaAlterar3 {
 
 //		Adicionando funcionalidade nos botoes
         Alterar3 alterar3Ouvinte = new Alterar3(janela);
+		Alterar3Votar alterar3Voltar = new Alterar3Votar(this, janela,telaAlterar2);
         btnCancel.addActionListener(alterar3Ouvinte);
-        btnContra.addActionListener(alterar3Ouvinte);
-        btnFavor.addActionListener(alterar3Ouvinte);
+        btnContra.addActionListener(alterar3Voltar);
+        btnFavor.addActionListener(alterar3Voltar);
 
 		JPanel painelBotoes = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();

@@ -1,5 +1,37 @@
 package edu.model.dao;
 
-public class VotoEleitorDAO {
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import edu.controller.datamanager.Manager;
+import edu.controller.dto.VotoEleitor;
+
+import javax.swing.*;
+
+public class VotoEleitorDAO extends DAO {
+
+    public void adicionar(VotoEleitor votoEleitor) {
+        try {
+            insertQuery("voto_eleitor", "proposicao_id, eleitor_id, voto", votoEleitor.toString());
+            JOptionPane.showMessageDialog(null, "Voto a favor realizado!", "MVF - Voto realizado", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Você já votou nesta proposição", "MVF - Proposição já votada", JOptionPane.ERROR_MESSAGE);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String votoRealizado(int idProposicao, int idEleitor) throws SQLException, ClassNotFoundException {
+        ResultSet rs = selectRS("SELECT voto FROM voto_eleitor where proposicao_id = " + idProposicao + " and eleitor_id = " + idEleitor);
+        rs.next();
+        if (rs.getBoolean("voto")) {
+            return "A favor";
+        }
+        return "Contra";
+    }
+
+    public void alterarVoto(String voto, int idProposicao, int eleitorId) throws SQLException, ClassNotFoundException {
+        updateQuery(voto, idProposicao, eleitorId);
+    }
 }

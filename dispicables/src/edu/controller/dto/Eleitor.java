@@ -2,9 +2,10 @@ package edu.controller.dto;
 
 public class Eleitor {
 
-	String email;
-	String senha;
-	
+    private String email;
+    private String senha;
+    private int id;
+
 	public String getEmail() {
 		return email;
 	}
@@ -17,7 +18,16 @@ public class Eleitor {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "email='" + email + '\'' +
+				", senha='" + senha + '\'';
+	}
 }

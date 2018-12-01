@@ -1,23 +1,32 @@
 package edu.controller.dto;
 
 public class VotoEleitor {
+	int idEleitor;
+	int idProposicao;
+	boolean voto;
 
-	Proposicao proposicao;
-	Eleitor eleitor;
-	
-	public Proposicao getProposicao() {
-		return proposicao;
+	public int getIdEleitor() {
+		return idEleitor;
 	}
-	public void setProposicao(Proposicao proposicao) {
-		this.proposicao = proposicao;
+	public void setIdEleitor(int idEleitor) {
+		this.idEleitor = idEleitor;
 	}
-	public Eleitor getEleitor() {
-		return eleitor;
+	public int getId() {
+		return idProposicao;
 	}
-	public void setEleitor(Eleitor eleitor) {
-		this.eleitor = eleitor;
+	public void setId(int id) {
+		this.idProposicao = id;
 	}
-	
-	
-	
+	public boolean isVoto() {
+		return voto;
+	}
+	public void setVoto(boolean voto) {
+		this.voto = voto;
+	}
+
+	@Override
+	public String toString() {
+		return idProposicao +","+ idEleitor +","+ String.valueOf(voto);
+	}
+
 }

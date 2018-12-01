@@ -1,16 +1,16 @@
 package edu.controller.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Proposicao {
 
-	int id;
-	String ementa;
-	Date dataApresentacao;
-	String ementaDetalhada;
-	String texto;
-	
-	public int getId() {
+	private int id;
+    private String ementa;
+    private String ementaDetalhada;
+    private Date dataApresentacao;
+    private String texto;
+
+    public int getId() {
 		return id;
 	}
 

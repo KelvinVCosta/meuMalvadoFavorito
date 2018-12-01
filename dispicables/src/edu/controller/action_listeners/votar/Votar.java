@@ -1,33 +1,50 @@
 package edu.controller.action_listeners.votar;
 
-import edu.view.TelaMain;
+import edu.controller.dto.Proposicao;
+import edu.controller.dto.VotoEleitor;
+import edu.model.dao.EleitorDAO;
+import edu.model.dao.VotoEleitorDAO;
+import edu.view.votar.TelaVotar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Votar implements ActionListener {
-    JFrame janelaAnterior;
-    public Votar(JFrame janelaAnterior) {
-        this.janelaAnterior = janelaAnterior;
+    String login;
+    TelaVotar telaVotar;
+    int id;
+    VotoEleitorDAO votoEleitorDao = new VotoEleitorDAO();
+    
+    public Votar( String login, TelaVotar telaVotar) {
+        this.login = login;
+        this.telaVotar = telaVotar;
     }
 
+    private void votarProposicao(boolean voto) {
+    		VotoEleitor votoEleitor = new VotoEleitor();
+    		EleitorDAO EleitorDAO = new EleitorDAO();
+	    	votoEleitor.setId(telaVotar.getProposicoes().get(telaVotar.getI()).getId());
+        try {
+            votoEleitor.setIdEleitor(EleitorDAO.getEleitorId(login));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        votoEleitor.setVoto(voto);
+	    	votoEleitorDao.adicionar(votoEleitor);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ("A Favor".equals(e.getActionCommand())){
-//            TODO: Mudar em banco a resposta do eleitor sobre aquela proposicao, a favor
-        } else if ("Contra".equals(e.getActionCommand())){
-//            TODO: Mudar em banco a resposta do eleitor sobre aquela proposicao, contra
-        } else if ("Voltar".equals(e.getActionCommand())){
-//            TODO: Volta para a proposicao anterior vista por ele
-        } else if ("Próximo".equals(e.getActionCommand())){
-//            TODO: Troca para uma nova proposicao
-        } else if ("Cancelar".equals(e.getActionCommand())){
-//            TODO: Voltar pra telaMain
-              janelaAnterior.dispose();
-              new TelaMain();
-
+        if ("A Favor".equals(e.getActionCommand())) {
+            votarProposicao(true);
+        } else if ("Contra".equals(e.getActionCommand())) {
+            votarProposicao(false);
         }
     }
+
+
 }

@@ -1,6 +1,7 @@
 package edu.view.login;
 
-import edu.controller.action_listeners.login.Cadastro;
+import edu.controller.action_listeners.cadastro.Cadastrar;
+import edu.controller.action_listeners.cadastro.Voltar;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -16,36 +17,36 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class TelaCadastro {
-	public TelaCadastro() {
+
+    private final JTextField txtEmail = new JTextField();
+    private final JPasswordField txtSenha = new JPasswordField();
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JPasswordField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public TelaCadastro() {
 		criarLayout();
 	}
 
 	private void criarLayout() {
-// 		Criação da Janela, painel e objetos necessários
-		JFrame janela = new JFrame("MVF - Cadastro ");
+// 		Criar Janela, painel e objetos necessÃ¡rios
+		JFrame janela = new JFrame("MVF - cadastro ");
 		
 		JPanel painelPrincipal = new JPanel(new GridBagLayout());// Criando o painel principal e setando como
 														// GridBagLayout.
 		GridBagConstraints gbc = new GridBagConstraints();
-//		Criação dos componentes para colocar dentro do painel
-		JLabel nome = new JLabel("Nome");
-		JLabel login = new JLabel("Login");
+//		Criar componentes para colocar dentro do painel
 		JLabel eMail = new JLabel("E-mail");
 		JLabel senha = new JLabel("Senha");
-		
-		JTextField txtNome = new JTextField();
-		JTextField txtLogin = new JTextField();
-		JTextField txtEMail = new JTextField();
-		JPasswordField txtSenha = new JPasswordField();
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		JButton btnCadFinal = new JButton("Cadastrar");
-//		Adicionando acao aos botoes
 
-		Cadastro cadastroOuvinte = new Cadastro(janela);
-		btnCadFinal.addActionListener(cadastroOuvinte);
-		btnVoltar.addActionListener(cadastroOuvinte);
-		
 //		Adicionando os componentes ao painel
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -55,19 +56,11 @@ public class TelaCadastro {
 		gbc.insets = new Insets(4, 4, 4, 4);
 		
 		gbc.ipady = 7;
-		painelPrincipal.add(nome, gbc);
 		gbc.gridx++;
-		painelPrincipal.add(txtNome, gbc);
-		gbc.gridy++;
-		gbc.gridx = 0;
-		painelPrincipal.add(login, gbc);
-		gbc.gridx++;
-		painelPrincipal.add(txtLogin, gbc);
-		gbc.gridy++;
 		gbc.gridx = 0;
 		painelPrincipal.add(eMail, gbc);
 		gbc.gridx++;
-		painelPrincipal.add(txtEMail,gbc);
+		painelPrincipal.add(txtEmail,gbc);
 		gbc.gridy++;
 		gbc.gridx = 0;
 		painelPrincipal.add(senha,gbc);
@@ -79,11 +72,14 @@ public class TelaCadastro {
 		painelPrincipal.add(btnVoltar,gbc);
 		gbc.gridx++;
 		painelPrincipal.add(btnCadFinal,gbc);
-		
-		
-		
-		
-//		Atribuições finais para a janela
+
+//		Adicionando acao aos botoes
+        Voltar voltarOuvinte = new Voltar(janela);
+        Cadastrar cadastrarOuvinte = new Cadastrar(this);
+        btnCadFinal.addActionListener(cadastrarOuvinte);
+        btnVoltar.addActionListener(voltarOuvinte);
+
+//		Atribuiï¿½ï¿½es finais para a janela
 		janela.setContentPane(painelPrincipal);
 		janela.setSize(300,300);
 		
